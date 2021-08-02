@@ -1,0 +1,44 @@
+PROJECT 2 IDEAS:
+
+
+Activity monitering website
+	-users can input information about their work activities for specific dates and times
+	-managers can view employees activity pages
+	-data visualization page
+
+
+	-All of these websites could use an email password reset form.
+	-Implements SPA with Angular
+
+
+USER STORIES
+	-rank the user stories based on the importance to our application.
+	-also make feature files for all 'features' through to planned goals.
+
+	MVP: Logins, and credential differentiation
+		Users are able to input workday information
+		Assign Tasks/complete tasks (for managers only)
+		Data visualization (check users data and activities)
+		
+
+	PLANNED GOALS (on top of MVP): Alerts for tasks
+		Timeline of work day
+		Assigning and unassigning tasks
+		
+
+
+	STRETCH GOALS: Graphical representation
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
