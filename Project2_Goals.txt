@@ -1,0 +1,28 @@
+MVP:
+	1. As a user, I want to log in to my own page
+	2. As a manager, I want to log in to my own manager page
+	3. As a user, I want to view my tasks assigned to me
+	4. As a user, I want to change the status of my tasks (in progress, completed, etc...)
+	5. As a manager, I want to view all of my employees
+	6. As a manager, I want to assign tasks to my employees
+	7. As a user, I want to create an account if I don't have one
+
+Goals:
+	1. As a manager, I want to view the tasks of my employees 
+	2. As a manager, I want to set the Priority of the task
+	3. As a manager, I want to set the Type of task for my employee
+	4. As a manager, I want to set a timeframe for tasks to be completed
+	5. As a manager, I want to approve tasks which have been completed
+	6. As a manager, I want to be able to remove tasks from my employees
+	7. As a user, I want to notify my manager why my task was not completed on time
+	8. As a manager, I want to extend the time for a task
+	9. As a user, I want to reset my password if I forgot it
+
+
+Stretch Goals:
+	1. As a user, I want to see a visual timeline of my day
+	2. As a user, I want to update my timeline of my day (with times for lunch, breaks, and task work times)
+	3. As a manager, I want to view the timelines of my employees
+	4. As a user, I want to see my past timelines
+	5. As a manager, I want to view the past timelines of my employees
+	
