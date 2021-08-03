@@ -27,4 +27,6 @@ if the task priority is blocking or critical, employee assigned to this task  mu
 
 Instructions 
 -------------
-an employee cannot have more than 5 tasks assigned
+-an employee cannot have more than 5 tasks assigned.
+ -A task can only be assigned to one employee (otherwise we will have a junction table).
+-if only the manager can assign tasks then step 1 to 4 must be removed from the scenario.
