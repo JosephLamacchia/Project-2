@@ -12,6 +12,5 @@ export class ToggleDisplayService implements OnInit{
    }
 
   ngOnInit() {
-
   }
 }
