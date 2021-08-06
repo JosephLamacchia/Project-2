@@ -25,12 +25,12 @@ export class ForgotpasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-
   sendEmail( ){
 
-    if(this.http.getEmployee(this.email)){
+    if(true){
       //Send Email
-      this.invalid = false;
+      this.http.sendEmail(this.email).subscribe()
+      
     }
     else{
       this.invalid = true;

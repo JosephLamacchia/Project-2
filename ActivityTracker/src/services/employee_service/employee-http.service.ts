@@ -23,6 +23,9 @@ export class EmployeeHttpService {
   getEmployee(email: string): Observable<Employee> {
     return this.http.get<Employee>('http://localhost:7000/employees/' + email);
   }
+  sendEmail(email: string): Observable<Employee> {
+    return this.http.get<Employee>('http://localhost:8080/forgotpassword/' + email);
+  }
 
   updateEmployee(Employee: Employee): Observable<Employee> {
     return this.http.put<Employee>('http://localhost:7000/employees/' + Employee.id, Employee, { headers: this.postHeaders });

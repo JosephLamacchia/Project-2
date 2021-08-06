@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
