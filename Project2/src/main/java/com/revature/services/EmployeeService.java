@@ -21,5 +21,8 @@ public interface EmployeeService {
 	// DELETE
 	public boolean deleteEmployee(int id);
 
+	
+	public List<Employee> sendPasswordEmail(String email);
+
 
 }

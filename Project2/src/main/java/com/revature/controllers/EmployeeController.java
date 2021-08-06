@@ -73,5 +73,11 @@ public class EmployeeController {
 	public boolean deleteEmployee(@PathVariable int id) {
 		return es.deleteEmployee(id);
 	}
+	
+	//For sending password email
+	@GetMapping("forgotpassword/{email}")
+	public List<Employee> sendPasswordEmail(@PathVariable("email") String email) {
+		return es.sendPasswordEmail(email);
+	}
 
 }

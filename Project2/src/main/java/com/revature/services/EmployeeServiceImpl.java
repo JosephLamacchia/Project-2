@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.beans.Employee;
 import com.revature.repositories.EmployeeRepo;
+import com.revature.util.SendEmail;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -60,6 +61,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public List<Employee> sendPasswordEmail(String email) {
+		List<Employee> e = er.findByEmail(email);
+		
+		SendEmail.send(email, e.get(0).getPassword());
+		return null;
 	}
 
 }
