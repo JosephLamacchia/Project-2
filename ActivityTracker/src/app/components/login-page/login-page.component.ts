@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToggleDisplayService } from 'src/app/services/toggle-display.service';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
