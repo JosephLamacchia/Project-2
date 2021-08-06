@@ -6,8 +6,9 @@ export class Employee {
     lastName: string;
     isManager: boolean;
     password: string;
+    m_id: number;
 
-    constructor(id: number, email: string, password: string, firstName: string,  lastName: string, isManager: boolean) {    
+    constructor(id: number, email: string, password: string, firstName: string,  lastName: string, isManager: boolean, m_id:number) {    
 
         this.id = id;
         this.email = email;
@@ -15,6 +16,7 @@ export class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isManager = isManager;
+        this.m_id = m_id;
     }
 
 }

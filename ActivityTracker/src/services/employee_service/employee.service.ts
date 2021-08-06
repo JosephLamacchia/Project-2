@@ -8,5 +8,5 @@ export class EmployeeService {
 
   constructor() { }
 
-  employee: Employee = new Employee(0, '', '', '','','','','',0,false);
+  employee: Employee = new Employee(0, '', '', '','',false,0);
 }
