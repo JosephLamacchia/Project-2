@@ -39,7 +39,6 @@ CREATE TABLE public.employeet (
 	firstname varchar(50) NOT NULL,
 	lastname varchar(50) NOT NULL,
 	middlename varchar(50) NULL,
-	password varchar(50) NOT NULL,
 	phone varchar(50) NULL,
 	email varchar(50) NOT NULL,
 	address varchar(50) NULL,
