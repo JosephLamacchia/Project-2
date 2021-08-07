@@ -67,8 +67,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> sendPasswordEmail(String email) {
 		List<Employee> e = er.findByEmail(email);
 		
+		if(e.size() > 0) {
+		
 		SendEmail.send(email, e.get(0).getPassword());
-		return null;
+		return e;}
+		else {
+		return null;}
 	}
 
 }

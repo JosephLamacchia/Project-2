@@ -11,6 +11,7 @@ import com.revature.beans.Employee;
 public interface EmployeeRepo extends CrudRepository<Employee, Integer> {
 	
 	List<Employee> findByFirstname(String firstname);
+	
 	List<Employee> findByEmail(String email);
 
 }

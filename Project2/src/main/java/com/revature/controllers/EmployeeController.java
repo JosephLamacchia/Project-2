@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.Employee;
 import com.revature.services.EmployeeService;
 
+@CrossOrigin
 @RestController
 public class EmployeeController {
 	
@@ -77,7 +79,9 @@ public class EmployeeController {
 	//For sending password email
 	@GetMapping("forgotpassword/{email}")
 	public List<Employee> sendPasswordEmail(@PathVariable("email") String email) {
-		return es.sendPasswordEmail(email);
+		es.sendPasswordEmail(email);
+		
+		return  es.getEmployeeByEmail(email);
 	}
 
 }
