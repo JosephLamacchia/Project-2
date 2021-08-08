@@ -16,10 +16,10 @@
 </div>
 <div>
   <h3>Dropdown for manager selection</h3>
-  <select [(ngModel)]="selected">
+  <select [(ngModel)]="selected" id="dropDown">
     <option disabled>Select Manager</option>
-    <option value="true">I am a Manager</option>
-    <option *ngFor="let manager of managers" [ngValue]="manager">{{manager.firstname}} {{manager.lastname}}</option>
+    <option value="true" id="amManager">I am a Manager</option>
+    <option *ngFor="let manager of managers" [ngValue]="manager" id="chooseManager">{{manager.firstname}} {{manager.lastname}}</option>
   </select>
 </div>
 

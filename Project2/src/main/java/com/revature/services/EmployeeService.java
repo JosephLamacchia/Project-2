@@ -14,6 +14,7 @@ public interface EmployeeService {
 	public List<Employee> getEmployeeByFirstname(String firstname);
 	public List<Employee> getEmployeeByEmail(String email);
 	public List<Employee> getAllEmployees();
+	public List<Employee> getAllManagers();
 	
 	// UPDATE
 	public Employee updateEmployee(Employee change);

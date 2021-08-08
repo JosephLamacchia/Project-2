@@ -45,6 +45,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return (List<Employee>) er.findAll();
 	}
 
+	@Override
+	public List<Employee> getAllManagers() {
+		List<Employee> employees = (List<Employee>) er.findAll();
+		for(int i = 0; i < employees.size(); i++) {
+			if(employees.get(i).isManager() == false) {
+				employees.remove(i);
+				//decrement since this element is removed
+				i--;
+			}
+		}
+		return employees;
+	}
+
 	// UPDATE
 	@Override
 	public Employee updateEmployee(Employee change) {

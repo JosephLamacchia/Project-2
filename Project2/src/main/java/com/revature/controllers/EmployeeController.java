@@ -51,6 +51,10 @@ public class EmployeeController {
 		return es.getAllEmployees();
 	}
 
+	@GetMapping(value="/employees/managers", produces="application/json")
+	public List<Employee> getAllManagers() {
+		return es.getAllManagers();
+	}
 	
 	@GetMapping("employees/search")
 	public List<Employee> searchEmployee(@RequestParam(required = false) String firstname, @RequestParam(required = false) String email) {
