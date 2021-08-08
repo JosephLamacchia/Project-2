@@ -3,7 +3,10 @@
 <h5>Below we will have all of the user data which needs to be entered</h5>
 
 <div class="form-group row">
-  <input type="text" class="form-control" [(ngModel)]="name" id="inputName" placeholder="First and Last Name...">
+  <input type="text" class="form-control" [(ngModel)]="firstName" id="inputFirst" placeholder="First Name...">
+</div>
+<div class="form-group row">
+  <input type="text" class="form-control" [(ngModel)]="lastName" id="inputLast" placeholder="Last Name...">
 </div>
 <div class="form-group row">
   <input type="text" class="form-control" [(ngModel)]="email" id="inputEmail" placeholder="email address...">
@@ -13,15 +16,17 @@
 </div>
 <div>
   <h3>Dropdown for manager selection</h3>
-  <form [formGroup]="managersForm" (ngSubmit)="onSubmit()">
-    <select formControlName="name">
-      <option disabled>Select Manager</option>
-      <option>Choose Manager</option>
-      <option *ngFor="let manager of managers">{{manager}}</option>
-    </select>
-  </form>
-</div><br>
+  <select [(ngModel)]="selected" id="dropDown">
+    <option disabled>Select Manager</option>
+    <option value="true" id="amManager">I am a Manager</option>
+    <option *ngFor="let manager of managers" [ngValue]="manager" id="chooseManager">{{manager.firstname}} {{manager.lastname}}</option>
+  </select>
+</div>
+
+<br>
 
 <div>
   <button (click)="createUser()">Submit</button>
 </div>
+
+<h3>{{alert}}</h3>
