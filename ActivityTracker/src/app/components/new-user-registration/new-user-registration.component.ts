@@ -30,6 +30,7 @@ export class NewUserRegistrationComponent{
   }
 
   ngOnInit() {
+    this.isManager = false;
     this.getManagers();
   }
 
