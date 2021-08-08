@@ -16,16 +16,17 @@
 </div>
 <div>
   <h3>Dropdown for manager selection</h3>
-  <form [formGroup]="managersForm" (ngSubmit)="onSubmit()">
-    <select formControlName="name">
-      <option disabled>Select Manager</option>
-      <option>Choose Manager</option>
-      <option value="true">I am a Manager</option>
-      <option *ngFor="let manager of managers">{{manager}}</option>
-    </select>
-  </form>
-</div><br>
+  <select [(ngModel)]="selected">
+    <option disabled>Select Manager</option>
+    <option value="true">I am a Manager</option>
+    <option *ngFor="let manager of managers" [ngValue]="manager">{{manager.firstname}} {{manager.lastname}}</option>
+  </select>
+</div>
+
+<br>
 
 <div>
   <button (click)="createUser()">Submit</button>
 </div>
+
+<h3>{{alert}}</h3>

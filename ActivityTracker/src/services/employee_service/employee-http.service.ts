@@ -16,6 +16,10 @@ export class EmployeeHttpService {
     return this.http.get<Employee[]>('http://localhost:7000/employees');
   }
 
+  getAllManagers(): Observable<Employee[]> {
+    return this.http.get<Employee[]>('http://localhost:8080/employees/managers');
+  }
+
   addEmployee(Employee: Employee): Observable<Employee> {
     return this.http.post<Employee>('http://localhost:8080/employees', Employee, { headers: this.postHeaders });
   }
