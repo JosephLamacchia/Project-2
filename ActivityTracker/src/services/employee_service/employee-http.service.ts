@@ -17,7 +17,7 @@ export class EmployeeHttpService {
   }
 
   addEmployee(Employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>('http://localhost:8080/employees', Employee, { headers: this.postHeaders });
+    return this.http.post<Employee>('http://localhost:7000/employees', Employee, { headers: this.postHeaders });
   }
 
   getEmployee(email: string): Observable<Employee> {
