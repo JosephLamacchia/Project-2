@@ -29,10 +29,6 @@ public class TaskServiceImpl implements TaskService {
 		return er.findById(id).get();
 	}
 
-	@Override
-	public List<Task> getTaskByFirstname(String firstname) {
-		return er.findByFirstname(firstname);
-	}
 	
 	@Override
 	public List<Task> getAllTasks() {

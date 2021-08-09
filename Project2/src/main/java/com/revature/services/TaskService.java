@@ -11,7 +11,6 @@ public interface TaskService {
 	
 	// READ
 	public Task getTask(int id);
-	public List<Task> getTaskByFirstname(String firstname);
 	public List<Task> getAllTasks();
 	
 	// UPDATE
