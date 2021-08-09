@@ -28,7 +28,7 @@ export class ForgotpasswordComponent implements OnInit {
         (response)=>{
 
           console.log("Response : " + JSON.stringify(response))
-          if(JSON.stringify(response)){
+          if(response.password){
             this.success= true;      
     }
     else{

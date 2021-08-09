@@ -30,19 +30,19 @@
                                         <div class="form-group">
                                            
                                         </div>
-                                        <a class="btn btn-primary btn-user btn-block" (click)="loginto()">
+                                        <a class="btn btn-primary btn-user btn-block"  id = "login"  (click)="loginto()">
                                             Login
                                         </a>
                                    
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <span style="color: red;" *ngIf="invalidLogin">Invalid Login Credentials!</span>
+                                        <span id="invalid" style="color: red;" *ngIf="invalidLogin">Invalid Login Credentials!</span>
                                         <br>
-                                        <a class="small" routerLink="/forgotpassword">Forgot Password?</a>
+                                        <a class="small" id="forgot" routerLink="/forgotpassword">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" routerLink="/newUser">Create an Account!</a>
+                                        <a class="small" id="register" routerLink="/newUser">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
