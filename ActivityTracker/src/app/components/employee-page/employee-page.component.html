@@ -84,7 +84,7 @@
                     <!-- Page Form -->
                     <div class="container">
                         
-                      <form>
+                      <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
                         <label for="fname">First Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your first name.." ngModel>
                     
