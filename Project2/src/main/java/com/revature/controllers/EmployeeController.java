@@ -87,5 +87,18 @@ public class EmployeeController {
 		
 		return  es.getEmployeeByEmail(email);
 	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("employees/credential")
+	public Employee credentialEmployee(@RequestBody Employee e){
+		Employee rep=es.getEmployee(e.getEmail(), e.getPassword()) ;
+		if (rep != null) {
+			return  rep ;
+		} else {
+return new Employee();
+		}
+	
+	
+}
 
 }
