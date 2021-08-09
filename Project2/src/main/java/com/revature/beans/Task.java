@@ -16,37 +16,47 @@ public class Task {
 	@Column(name = "t_id", updatable = false)
 	private int id;
 	
-	@Column(name = "firstname", nullable = false)
-	private String firstname;
+	@Column(name = "taskdescription", nullable = false)
+	private String taskdescription;
 	
-	@Column(name = "lastname", nullable = false)
-	private String lastname;
+	@Column(name = "starttime", nullable = false)
+	private long starttime;
 	
-	@Column(name = "activity", nullable = false)
-	private String activity;
+	@Column(name = "duedate", nullable = false)
+	private long duedate;
 	
-	@Column(name = "duration", nullable = false)
-	private int duration;
+	@Column(name = "status", nullable = false)
+	private String status;
+	
+	@Column(name = "comment", nullable = false)
+	private String comment;
+	
+	@Column(name = "e_id", nullable = false)
+	private int e_id;
 
 	public Task() {
 		super();
 	}
 
-	public Task(int id, String firstname, String lastname, String activity, int duration) {
+	public Task(int id, String taskdescription, long starttime, long duedate, String status, String comment, int e_id) {
 		super();
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.activity = activity;
-		this.duration = duration;
+		this.taskdescription = taskdescription;
+		this.starttime = starttime;
+		this.duedate = duedate;
+		this.status = status;
+		this.comment = comment;
+		this.e_id = e_id;
 	}
 		//ID-Less
-	public Task(String firstname, String lastname, String activity, int duration) {
+	public Task(String taskdescription, long starttime, long duedate, String status, String comment, int e_id) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.activity = activity;
-		this.duration = duration;
+		this.taskdescription = taskdescription;
+		this.starttime = starttime;
+		this.duedate = duedate;
+		this.status = status;
+		this.comment = comment;
+		this.e_id = e_id;
 	}
 
 	public int getId() {
@@ -56,43 +66,59 @@ public class Task {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getFirstname() {
-		return firstname;
+
+	public String getTaskdescription() {
+		return taskdescription;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setTaskdescription(String taskdescription) {
+		this.taskdescription = taskdescription;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public long getStarttime() {
+		return starttime;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setStarttime(long starttime) {
+		this.starttime = starttime;
 	}
 
-	public String getActivity() {
-		return activity;
+	public long getDuedate() {
+		return duedate;
 	}
 
-	public void setActivity(String activity) {
-		this.activity = activity;
+	public void setDuedate(long duedate) {
+		this.duedate = duedate;
 	}
 
-	public int getDuration() {
-		return duration;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setDuration(int duration) {
-		this.duration = duration;
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public int getE_id() {
+		return e_id;
+	}
+
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
 	}
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", activity=" + activity
-				+ ", duration=" + duration + "]";
+		return "Task [id=" + id + ", taskdescription=" + taskdescription + ", starttime=" + starttime + ", duedate="
+				+ duedate + ", status=" + status + ", comment=" + comment + ", e_id=" + e_id + "]";
 	}
 
 	
