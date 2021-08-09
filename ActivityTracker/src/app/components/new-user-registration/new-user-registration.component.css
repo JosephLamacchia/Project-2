@@ -1,0 +1,20 @@
+
+#submitButton {
+    background-color: #0d6efd;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container {
+    background-color: #0d6efd;
+}
+
+#inputCard {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    width: 50%;
+}
