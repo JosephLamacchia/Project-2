@@ -77,29 +77,8 @@
                     <!-- Page Heading -->
                     <h1 class="title">Employee Page</h1>
                     <!-- Page Sub Heading -->
-                    <h3 class="title">Task Form</h3>
-
-
-
-                    <!-- Page Form -->
-                    <div class="container">
-                        
-                      <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your first name.." ngModel>
-                    
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name.." ngModel>
-                    
-                        <label for="lname">Activity</label>
-                        <input type="text" id="activity" name="activity" placeholder="Activity.." ngModel>
-                    
-                        <label for="description">Duration</label>
-                        <input type="number" id="duration" name="duration" placeholder="Hours.." ngModel>
-                    
-                        <button type="submit">Submit</button>
-                      </form>
-
+                    <div id="button-container">
+                        <button class="button button1">View Submitted Tasks</button>
                     </div>
 
 
