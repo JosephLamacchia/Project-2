@@ -28,7 +28,7 @@ public class Task {
 	@Column(name = "status", nullable = false)
 	private String status;
 	
-	@Column(name = "comment", nullable = false)
+	@Column(name = "comment", nullable = true)
 	private String comment;
 	
 	@Column(name = "e_id", nullable = false)

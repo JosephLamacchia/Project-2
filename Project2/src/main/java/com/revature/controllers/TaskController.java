@@ -36,27 +36,12 @@ public class TaskController {
 		return es.getTask(Integer.parseInt(id));
 	}
 	
-	@GetMapping("task/{firstname}")
-	public List<Task> getTaskByFirstname(@PathVariable("firstname") String firstname) {
-		return es.getTaskByFirstname(firstname);
-	}
-	
 	
 	@GetMapping(value = "/task", produces = "application/json")
 	public List<Task> getAllTasks() {
 		return es.getAllTasks();
 	}
 
-	
-	@GetMapping("task/search")
-	public List<Task> searchTask(@RequestParam(required = false) String firstname) {
-		
-		if(firstname != null) {
-			return es.getTaskByFirstname(firstname);
-		} else {
-			return new ArrayList<Task>();
-		}
-	}
 	// UPDATE
 	@PutMapping(value = "/task/{id}", consumes = "application/json", produces = "application/json")
 	public Task updateTask(@PathVariable int id, @RequestBody Task change) {

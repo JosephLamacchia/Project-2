@@ -10,6 +10,5 @@ import com.revature.beans.Task;
 @Repository
 public interface TaskRepo extends CrudRepository<Task, Integer> {
 	
-	List<Task> findByFirstname(String firstname);
 
 }
