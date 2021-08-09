@@ -11,30 +11,31 @@ export class ForgotpasswordComponent implements OnInit {
 
   }
 
+  public success:boolean = false;
 
  public invalid:boolean = false;
  public email:string ='';
 
  
-  getVal(val: string){
-    console.warn(val)
-  }
-
-  
-  
   ngOnInit() {
   }
 
-  sendEmail( ){
+  sendEmail(){
 
-    if(true){
+   
       //Send Email
-      this.http.sendEmail(this.email).subscribe()
-      
+      this.http.sendEmail(this.email).subscribe(
+        (response)=>{
+
+          console.log("Response : " + JSON.stringify(response))
+          if(JSON.stringify(response)){
+            this.success= true;      
     }
     else{
       this.invalid = true;
     }
-  }
+  })
+
+}
 
 }
