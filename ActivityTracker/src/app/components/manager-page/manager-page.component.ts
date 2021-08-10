@@ -16,17 +16,9 @@ export class ManagerPageComponent implements OnInit {
 
 
   employeelist: Login[] = [];
- // employeelist: Login[] =[{ "id": 1, "firstname": "The Avengers", "lastname": "lolo", "email": "lolo", "password" : "ok","manager":true,"m_id" :1}
-//,{ "id": 1, "firstname": "The Avengers", "lastname": "lolo", "email": "lolo", "password" : "ok","manager":true,"m_id" :1}];
-
+ 
   ngOnInit(): void {
     this.getEmployeebymanager();
-   // this.displayAllEmployee();
-//this.displayAllEmployeetest() ;
-
-  
-
-
 
   }
 
@@ -38,22 +30,25 @@ export class ManagerPageComponent implements OnInit {
   password: string| undefined;
   manager: boolean| undefined;
   m_id :number| undefined;
+  curemployee :Login | undefined;
 
- // employeelist = [
-   // { "id": 1, "title": "The Avengers", "price": 5.00, "available": true, "returnDate": 0 },
-   // { "id": 2, "title": "Black Widow", "price": 30.00, "available": true, "returnDate": 0 }
- // ]
+ 
+  mn :any  ;
+
+ 
+
+
 
  getEmployeebymanager() {
-    
-  this.loginServ.getEmployeebymanager(1).subscribe(
+   this.curemployee=this.loginServ.currentLogin;
+    this.mn=this.curemployee?.m_id;
+
+  
+  this.loginServ.getEmployeebymanager(this.mn).subscribe(
     (response) => {
       //console.log(response);
-     
      this.employeelist=response;
-     //for(let employee of response) {
-     // this.employeelist.push(employee);
-     //}
+   
       
 
 
@@ -64,38 +59,9 @@ export class ManagerPageComponent implements OnInit {
   );
 }
 
- displayAllEmployee() {
 
-  this.loginServ.getAllEmployee().subscribe(
-    (response) => {
-     // console.log(response);
-   
-      this.employeelist = response;
 
-      console.log(this.employeelist)
 
-    
-     
-    
-    }
-  );
-
-}
-
-displayAllEmployeetest() {
-
-  this.loginServ.getEmployeebymanager(1).subscribe(
-    (response) => {
-     // console.log(response);
-     for(let employee of response) {
-      this.employeelist.push(employee);
-     }
-
-      console.log(this.employeelist)
-    }
-  );
-
-}
 
 
 
