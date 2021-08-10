@@ -40,7 +40,7 @@ export class LoginPageComponent{
        (response) => {
          if (response.id) {
 
-if (response.ismanager==true) {
+if (response.manager==true) {
   this.welcomemanager=true;
   this.welcomesimple=false;
   
@@ -51,7 +51,12 @@ if (response.ismanager==true) {
 
            this.loginServ.currentLogin = response;
            console.log(this.loginServ.currentLogin);
-           this.router.navigate(['newUser']);
+           if(this.loginServ.currentLogin.manager == true) {
+              this.router.navigate(['manager']);
+           } else if (this.loginServ.currentLogin.manager == false){
+            this.router.navigate(['employee']);
+           }
+           
          } else {
            this.invalidLogin = true;
            this.welcomesimple=false;
