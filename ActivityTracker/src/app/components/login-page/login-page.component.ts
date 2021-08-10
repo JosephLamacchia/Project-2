@@ -15,7 +15,9 @@ export class LoginPageComponent{
 
   }
 
-  
+  //storeitem: any =localStorage.getItem("storeitem");
+ 
+  //localStorage.setItem("storeitem",us)
   isDisplayed: boolean |undefined;
   
   id: number=1 ;
