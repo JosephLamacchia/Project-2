@@ -24,11 +24,11 @@ export class ForgotpasswordComponent implements OnInit {
 
    
       //Send Email
-      this.http.sendEmail(this.email).subscribe(
+      this.http.sendEmail(this.email,'none','pass').subscribe(
         (response)=>{
 
           console.log("Response : " + JSON.stringify(response))
-          if(response.password){
+          if(response){
             this.success= true;      
     }
     else{
