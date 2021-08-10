@@ -82,7 +82,23 @@
                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
                     </div>
-
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            
+                        </tr>
+                        <tr *ngFor="let empl of employeelist">
+           
+                            <td>{{empl.id}}</td>
+                            <td>{{empl.firstname}}</td>
+                            <td>{{empl.lastname}}</td>
+                            <td>{{(empl.email)}}</td>
+                            
+                        </tr>
+                    </table>
 
                     <!-- Page Form -->
                     <div class="container">
