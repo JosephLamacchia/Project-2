@@ -4,12 +4,14 @@ import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login'
 
 
+
 @Component({
   selector: 'app-manager-page',
   templateUrl: './manager-page.component.html',
   styleUrls: ['./manager-page.component.css']
 })
 export class ManagerPageComponent implements OnInit {
+
 
   constructor(private http: HttpClient,private loginServ: LoginmatchService) { }
 
@@ -65,6 +67,15 @@ export class ManagerPageComponent implements OnInit {
 
 
 
+
+  onSubmit(data: any)
+  {
+    this.http.post('http://localhost:8080/task', data)
+    .subscribe((result) =>{
+      console.warn("result", result)
+    })
+    console.warn(data);
+  }
 
   onSubmit(data: any)
   {
