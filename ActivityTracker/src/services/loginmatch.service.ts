@@ -19,7 +19,13 @@ export class LoginmatchService {
     
   }
 
-  getEmployeebymanager(id :number): Observable<Login> {
-    return this.http.get<Login>('http://localhost:8080/manager/' + id);
+  getEmployeebymanager(id :number): Observable<Login[]> {
+    return this.http.get<Login[]>('http://localhost:8080/manager/' + id);
   }
+
+  getAllEmployee(): Observable<Login[]> {
+    return this.http.get<Login[]>('http://localhost:8080/employees');
+  }
+
+
 }

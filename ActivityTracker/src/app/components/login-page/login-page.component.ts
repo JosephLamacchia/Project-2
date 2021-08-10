@@ -15,6 +15,7 @@ export class LoginPageComponent{
 
   }
 
+  
   isDisplayed: boolean |undefined;
   
   id: number=1 ;
@@ -38,6 +39,7 @@ export class LoginPageComponent{
     // let user = new Login(3, this.firstname, this.password,true);
      this.loginServ.login(user).subscribe(
        (response) => {
+         
          if (response.id) {
 
 if (response.manager==true) {
