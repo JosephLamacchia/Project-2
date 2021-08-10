@@ -13,19 +13,19 @@ export class TaskHttpService {
   constructor(private http: HttpClient) { }
 
   getAllTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>('http://localhost:7000/tasks');
+    return this.http.get<Task[]>('http://localhost:8080/task');
   }
 
   addTask(Task: Task): Observable<Task> {
-    return this.http.post<Task>('http://localhost:7000/tasks', Task, { headers: this.postHeaders });
+    return this.http.post<Task>('http://localhost:8080/task', Task, { headers: this.postHeaders });
   }
 
   getTask(id_task: number): Observable<Task> {
-    return this.http.get<Task>('http://localhost:7000/tasks/' + id_task);
+    return this.http.get<Task>('http://localhost:8080/task/' + id_task);
   }
 
   updateTask(Task: Task): Observable<Task> {
-    return this.http.put<Task>('http://localhost:7000/tasks/' + Task.id_task, Task, { headers: this.postHeaders });
+    return this.http.put<Task>('http://localhost:8080/task/' + Task.id, Task, { headers: this.postHeaders });
   }
 
 }
