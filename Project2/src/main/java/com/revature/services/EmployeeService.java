@@ -26,6 +26,8 @@ public interface EmployeeService {
 	public List<Employee> sendPasswordEmail(String email);
 	
 	public Employee getEmployee(String email, String password);
+	
+	public List<Employee> getEmployeebymanager(int id);
 
 
 }

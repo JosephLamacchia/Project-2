@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee getEmployee(String email, String password) {
 	
 		return er.findByEmailAndPassword(email, password);
+	}
+
+	@Override
+	public List<Employee> getEmployeebymanager(int id) {
+		
+		List<Employee> employees = (List<Employee>) er.findAll();
+		List<Employee> employeesbymanager =new ArrayList<Employee>();
+		for(int i = 0; i < employees.size(); i++) {
+			if((employees.get(i).getM_id()==id) && (employees.get(i).isManager() == false)) {
+				employeesbymanager.add(employees.get(i));
+			}
+		}
+		return employeesbymanager;
 	}
 
 }
