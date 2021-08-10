@@ -18,3 +18,24 @@
     margin-top: 3%;
     width: 50%;
 }
+.row.justify-content-center {
+    background-color: #4e73df;
+}
+
+h1#createaccount {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+div#choosemanager {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+div#newusersubmit {
+    padding-bottom: 20px;
+}
