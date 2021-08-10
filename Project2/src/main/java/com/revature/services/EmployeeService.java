@@ -23,7 +23,7 @@ public interface EmployeeService {
 	public boolean deleteEmployee(int id);
 
 	
-	public List<Employee> sendPasswordEmail(String email);
+	public List<Employee> sendPasswordEmail(String email, String message, String type);
 	
 	public Employee getEmployee(String email, String password);
 

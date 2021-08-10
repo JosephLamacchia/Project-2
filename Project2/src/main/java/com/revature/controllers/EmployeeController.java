@@ -81,11 +81,19 @@ public class EmployeeController {
 	}
 	
 	//For sending password email
-	@GetMapping("forgotpassword/{email}")
-	public List<Employee> sendPasswordEmail(@PathVariable("email") String email) {
-		es.sendPasswordEmail(email);
+	@GetMapping("forgotpassword/{email}/{message}/{type}")
+	public Employee sendPasswordEmail(@PathVariable("email") String email,@PathVariable("message") String message,@PathVariable("type") String type) {
+		System.out.println("Email : " + email);
+		System.out.println("Message : " + message);
+		System.out.println("type : " + type);
+
+		es.sendPasswordEmail(email,message,type);
 		
-		return  es.getEmployeeByEmail(email);
+		List<Employee> list = es.getEmployeeByEmail(email);
+		
+		if( list.size() > 0) {
+		return  list.get(0);}
+		else {return null;}
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")

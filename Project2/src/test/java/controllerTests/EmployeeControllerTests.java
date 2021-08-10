@@ -1,8 +1,5 @@
 package controllerTests;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +10,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.revature.beans.Employee;
 import com.revature.services.EmployeeService;
@@ -41,8 +39,9 @@ class EmployeeControllerTests {
 	void getEmployeeByEmail()  throws Exception {
 		Mockito.when(es.getEmployeeByEmail("test")).thenReturn(list);
 		
-		ResultActions ra = mvc.perform(get("/employees/test"));
-		ra.andExpect(status().isOk());
+		mvc.perform(MockMvcRequestBuilders.get("/employees/email"))
+		.andExpect(MockMvcResultMatchers.status().isOk())
+		.andExpect(MockMvcResultMatchers.content().string(e.toString()));
 
 	}
 
