@@ -27,6 +27,10 @@ export class EmployeeHttpService {
   getEmployee(email: string): Observable<Employee> {
     return this.http.get<Employee>('http://localhost:7000/employees/' + email);
   }
+
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>('http://localhost:8080/employees/id/' + id);
+  }
   sendEmail(email: string, message: string, type: string): Observable<Employee> {
     return this.http.get<Employee>('http://localhost:8080/forgotpassword/' + email+ "/"+message + "/" +type );
   }

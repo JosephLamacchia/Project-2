@@ -50,8 +50,9 @@ export class EmployeePageComponent implements OnInit {
            for(let i = 0; i < this.tasks.length; i++) {
              if(this.tasks[i].e_id == this.currentEmployee?.id) {
                this.curTasks.push(this.tasks[i]);
-               let lsObject = stringify(this.tasks[i]);
-               localStorage.setItem("task " + (i + 1), lsObject);
+               let lsObject = JSON.stringify(this.tasks[i]);
+               window.localStorage.setItem("task" + i, lsObject);
+               console.log(window.localStorage.getItem("task" + i))
              }
            }
            console.log(this.curTasks);
@@ -62,5 +63,13 @@ export class EmployeePageComponent implements OnInit {
 
  updateTask() {
    //here is where we have the functionality of updating the task
+ }
+
+
+ saveIndex(index:number){
+
+  let indexString:string = index.toString();
+  window.localStorage.setItem('index',indexString);
+
  }
 }

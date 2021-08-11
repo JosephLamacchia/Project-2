@@ -40,6 +40,8 @@ export class LoginPageComponent{
        (response) => {
          if (response.id) {
 
+          window.localStorage.setItem('user',JSON.stringify(response));
+
 if (response.manager==true) {
   this.welcomemanager=true;
   this.welcomesimple=false;
