@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TaskService } from 'src/services/task_service/task.service';
+import { Task } from 'src/models/Task';
 
 
 @Component({
@@ -10,17 +12,22 @@ import { HttpClient } from '@angular/common/http';
 
 export class EmployeePageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  task: Task[] = [];
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient, private apiService:TaskService) { }
+
+
+  ngOnInit() {
+    this.refreshTask()
+  }
+ 
+  refreshTask() {
+    this.apiService.getTask()
+      .subscribe(data => {
+        console.log(data)
+        this.task=data;
+      })      
+ 
   }
 
-  onSubmit(data: any)
-  {
-    this.http.post('http://localhost:8080/task', data)
-    .subscribe((result) =>{
-      console.warn("result", result)
-    })
-    console.warn(data);
-  }
 }

@@ -83,7 +83,24 @@
 
 
 
-
+                    <!-- This is the table to hold all of the taks assigned to this particular employee -->
+                    <div>
+                        <table id="customers" class="tasktable">
+                            <tr>
+                                <th>Task ID</th>
+                                <th>Task Status</th>
+                                <th>Task Description</th>
+                                <th>Task Options</th>
+                            </tr>
+                            <tr *ngFor="let tasks of task">
+                               <td>{{tasks.id}}</td>
+                               <td>{{tasks.status}}</td>
+                               <td>{{tasks.taskdescription}}</td>
+                               <td><button class="button button2">update task</button></td>
+                               <!-- <td><button (click)="updateTask()">update task</button></td> -->
+                            </tr>
+                        </table>
+                    </div>
 
 
 
