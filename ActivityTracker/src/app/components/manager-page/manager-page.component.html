@@ -82,24 +82,7 @@
                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
                     </div>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Email</th>
-                            
-                        </tr>
-                        <tr *ngFor="let empl of employeelist">
-           
-                            <td>{{empl.id}}</td>
-                            <td>{{empl.firstname}}</td>
-                            <td>{{empl.lastname}}</td>
-                            <td>{{(empl.email)}}</td>
-                            
-                            
-                        </tr>
-                    </table>
+
 
                     <!-- Page Form -->
                     <div class="container">
@@ -119,7 +102,7 @@
 
                         <label for="lname">Comments</label>
                         <input type="text" id="comments" name="comments" placeholder="Comments.." ngModel>
-
+                    
                         <label for="description">Employee ID</label>
                         <input type="number" id="employeeid" name="employeeid" placeholder="Employee ID.." ngModel>
                     
