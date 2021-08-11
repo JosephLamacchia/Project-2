@@ -68,15 +68,7 @@ export class ManagerPageComponent implements OnInit {
 
 
 
-  onSubmit(data: any)
-  {
-    this.http.post('http://localhost:8080/task', data)
-    .subscribe((result) =>{
-      console.warn("result", result)
-    })
-    console.warn(data);
-  }
-
+ 
   onSubmit(data: any)
   {
     this.http.post('http://localhost:8080/task', data)
