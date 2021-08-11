@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LoginmatchService } from 'src/services/loginmatch.service';
+import { Login } from 'src/models/Login'
+import { Task } from 'src/models/Task';
+import { TaskHttpService } from 'src/services/task_service/task-http.service';
 
 
 @Component({
@@ -9,18 +13,84 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ManagerPageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
 
+  constructor(private http: HttpClient, private loginServ: LoginmatchService, private taskService: TaskHttpService) { }
+
+  public show:boolean = false;
+  public buttonName:any = 'Assign Task';
+
+  employeelist: Login[] = [];
+  task = new Task();
+ 
   ngOnInit(): void {
+    this.getEmployeebymanager();
+
   }
 
-  onSubmit(data: any)
+
+  id: number | undefined ;
+  firstname: string | undefined;
+  lastname: string | undefined;
+  email: string | undefined;
+  password: string| undefined;
+  manager: boolean| undefined;
+  m_id :number| undefined;
+  curemployee :Login | undefined;
+
+ 
+  mn :any  ;
+
+ 
+
+
+
+ getEmployeebymanager() {
+   this.curemployee=this.loginServ.currentLogin;
+    this.mn=this.curemployee?.m_id;
+
+  
+  this.loginServ.getEmployeebymanager(this.mn).subscribe(
+    (response) => {
+      //console.log(response);
+     this.employeelist=response;
+   
+      
+
+
+      console.log(this.employeelist);
+
+   }
+  
+  );
+}
+
+addTask() {
+  console.log(this.task);
+  this.taskService.addTask(this.task)
+    .subscribe(data => {
+      console.log(data)
+    })      
+}
+
+/*   onSubmit(data: any)
   {
     this.http.post('http://localhost:8080/task', data)
     .subscribe((result) =>{
       console.warn("result", result)
     })
     console.warn(data);
+  } */
+
+
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)  
+      this.buttonName = "Hide Task Form";
+    else
+      this.buttonName = "Show Task Form";
   }
+
 
 }

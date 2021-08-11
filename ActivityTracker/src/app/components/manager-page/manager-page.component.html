@@ -76,38 +76,64 @@
 
                     <!-- Page Heading -->
                     <h1 class="title">Manager Page</h1>
-                    <!-- Page Sub Heading -->
-                    <h3 class="title">Task Form</h3>
 
-                    <div id="button-container">
+
+<!--                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
-                    </div>
+                    </div> -->
 
+<div id="taskform">
+    <table id="customers">
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Task Option</th>
+            
+        </tr>
+        <tr *ngFor="let empl of employeelist">
+
+            <td>{{empl.id}}</td>
+            <td>{{empl.firstname}}</td>
+            <td>{{empl.lastname}}</td>
+            <td>{{(empl.email)}}</td>
+            <td><button class="button button1" (click)="toggle()" id="bt">{{buttonName}}</button></td>
+
+            
+            
+        </tr>
+    </table>
+</div>
 
                     <!-- Page Form -->
-                    <div class="container">
+                    <div class="container" *ngIf="show">
                         
-                      <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+                    <!-- Page Sub Heading -->
+                    <h3 class="title">Task Form</h3>
+                    <label for="fname">Task ID</label>
+                    <input type="text" id="taskid" name="taskid" placeholder="Task ID.." [(ngModel)]="task.id">
+                      
                         <label for="fname">Task Description</label>
-                        <input type="text" id="taskdescription" name="taskdescription" placeholder="Task Description.." ngModel>
+                        <input type="text" id="taskdescription" name="taskdescription" placeholder="Task Description.." [(ngModel)]="task.taskdescription">
                     
                         <label for="lname">Start Time</label>
-                        <input type="number" id="starttime" name="starttime" placeholder="Start Time.." ngModel>
+                        <input type="time" id="starttime" name="starttime" placeholder="Start Time.." [(ngModel)]="task.starttime">
                     
                         <label for="lname">Due Date</label>
-                        <input type="number" id="duedate" name="duedate" placeholder="Due Date.." ngModel>
+                        <input type="date" id="duedate" name="duedate" placeholder="Due Date.." [(ngModel)]="task.duedate">
                     
                         <label for="description">Status</label>
-                        <input type="text" id="status" name="status" placeholder="Status.." ngModel>
+                        <input type="text" id="status" name="status" placeholder="Status.." [(ngModel)]="task.status">
 
                         <label for="lname">Comments</label>
-                        <input type="text" id="comments" name="comments" placeholder="Comments.." ngModel>
+                        <input type="text" id="comments" name="comments" placeholder="Comments.." [(ngModel)]="task.comment">
                     
                         <label for="description">Employee ID</label>
-                        <input type="number" id="employeeid" name="employeeid" placeholder="Employee ID.." ngModel>
+                        <input type="number" id="employeeid" name="employeeid" placeholder="Employee ID.." [(ngModel)]="task.e_id">
                     
-                        <button type="submit">Submit</button>
-                      </form>
+                        <button (click)="addTask()">Assign</button>
+                      
 
                     </div>
 
