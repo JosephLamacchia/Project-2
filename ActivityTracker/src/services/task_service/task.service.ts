@@ -8,5 +8,5 @@ export class TaskService {
 
   constructor() { }
 
-  task: Task = new Task(0, '', 0, 0, 0, '');
+  task: Task = new Task(0, '','',0,0,'','',0,0,'',0,0,0,0);
 }
