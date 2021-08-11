@@ -108,10 +108,5 @@ return new Employee();
 	
 	
 }
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("manager/{id}")
-	public List<Employee> getEmployeebymanager(@PathVariable("id") String id) {
-		return es.getEmployeebymanager(Integer.parseInt(id));
-	}
 
 }
