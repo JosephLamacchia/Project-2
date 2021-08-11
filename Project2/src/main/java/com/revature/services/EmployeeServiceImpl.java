@@ -13,12 +13,12 @@ import com.revature.util.SendEmail;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-	//Automatically maps an object
-	//to its instance found in the Spring Container. IF ONE EXISTS.
-	//If more than one instance exists, you will need an @Qualifier
+	// Automatically maps an object
+	// to its instance found in the Spring Container. IF ONE EXISTS.
+	// If more than one instance exists, you will need an @Qualifier
 	@Autowired
 	EmployeeRepo er;
-	
+
 	// CREATE
 	@Override
 	public Employee addEmployee(Employee e) {
@@ -35,12 +35,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getEmployeeByFirstname(String firstname) {
 		return er.findByFirstname(firstname);
 	}
-	
+
 	@Override
 	public List<Employee> getEmployeeByEmail(String email) {
 		return er.findByEmail(email);
 	}
-	
+
 	@Override
 	public List<Employee> getAllEmployees() {
 		return (List<Employee>) er.findAll();
@@ -49,10 +49,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Employee> getAllManagers() {
 		List<Employee> employees = (List<Employee>) er.findAll();
-		for(int i = 0; i < employees.size(); i++) {
-			if(employees.get(i).isManager() == false) {
+		for (int i = 0; i < employees.size(); i++) {
+			if (employees.get(i).isManager() == false) {
 				employees.remove(i);
-				//decrement since this element is removed
+				// decrement since this element is removed
 				i--;
 			}
 		}
@@ -78,20 +78,45 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> sendPasswordEmail(String email) {
+	public List<Employee> sendPasswordEmail(String email, String message, String type) {
 		List<Employee> e = er.findByEmail(email);
 		
-		if(e.size() > 0) {
 		
-		SendEmail.send(email, e.get(0).getPassword());
-		return e;}
-		else {
-		return null;}
+		switch (type) {
+		
+		
+		case "pass":
+			
+
+			if (e.size() > 0) 	{
+
+				System.out.println("Inside proper area of switch statement");
+				SendEmail.send(email, "Your password is :" + e.get(0).getPassword());
+				return e;
+				
+			} else {
+				return null;
+			}
+
+			//Maybe figure out how to add names to make more custom
+		case "Assign":
+			//Can grab manager by the employees manager id? And then populate name. 
+			SendEmail.send(email, "Your manager has assigned you the following task : " + message);
+			return e;
+			
+
+		case "Complete":
+			//Less clear
+			SendEmail.send(email, "Your employee has submitted the following completion report : " + message);
+			return e;
+
+		}
+		return e;
 	}
 
 	@Override
 	public Employee getEmployee(String email, String password) {
-	
+
 		return er.findByEmailAndPassword(email, password);
 	}
 
