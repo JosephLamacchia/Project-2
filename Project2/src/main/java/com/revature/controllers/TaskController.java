@@ -27,6 +27,7 @@ public class TaskController {
 	// CREATE
 	@PostMapping(value = "/task", consumes = "application/json", produces = "application/json")
 	public Task addTask(@RequestBody Task e) {
+		System.out.print(e);
 		return es.addTask(e);
 	}
 

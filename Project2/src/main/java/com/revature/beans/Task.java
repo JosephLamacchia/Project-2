@@ -20,10 +20,10 @@ public class Task {
 	private String taskdescription;
 	
 	@Column(name = "starttime", nullable = false)
-	private long starttime;
+	private String starttime;
 	
 	@Column(name = "duedate", nullable = false)
-	private long duedate;
+	private String duedate;
 	
 	@Column(name = "status", nullable = false)
 	private String status;
@@ -38,7 +38,7 @@ public class Task {
 		super();
 	}
 
-	public Task(int id, String taskdescription, long starttime, long duedate, String status, String comment, int e_id) {
+	public Task(int id, String taskdescription, String starttime, String duedate, String status, String comment, int e_id) {
 		super();
 		this.id = id;
 		this.taskdescription = taskdescription;
@@ -49,7 +49,7 @@ public class Task {
 		this.e_id = e_id;
 	}
 		//ID-Less
-	public Task(String taskdescription, long starttime, long duedate, String status, String comment, int e_id) {
+	public Task(String taskdescription, String starttime, String duedate, String status, String comment, int e_id) {
 		super();
 		this.taskdescription = taskdescription;
 		this.starttime = starttime;
@@ -75,19 +75,19 @@ public class Task {
 		this.taskdescription = taskdescription;
 	}
 
-	public long getStarttime() {
+	public String getStarttime() {
 		return starttime;
 	}
 
-	public void setStarttime(long starttime) {
+	public void setStarttime(String starttime) {
 		this.starttime = starttime;
 	}
 
-	public long getDuedate() {
+	public String getDuedate() {
 		return duedate;
 	}
 
-	public void setDuedate(long duedate) {
+	public void setDuedate(String duedate) {
 		this.duedate = duedate;
 	}
 

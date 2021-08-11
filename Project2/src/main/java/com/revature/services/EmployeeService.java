@@ -27,5 +27,8 @@ public interface EmployeeService {
 	
 	public Employee getEmployee(String email, String password);
 
+	public List<Employee> getEmployeebymanager(int id);
+	
+	public Employee validateLogin(Employee e);
 
 }
