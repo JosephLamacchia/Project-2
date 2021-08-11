@@ -13,6 +13,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ManagerPageComponent } from './components/manager-page/manager-page.component';
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
+import { CompletetaskComponent } from './components/completetask/completetask.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { NewUserRegistrationComponent } from './components/new-user-registration
     ForgotpasswordComponent,
     LoginPageComponent,
     ManagerPageComponent,
-    NewUserRegistrationComponent
+    NewUserRegistrationComponent,
+    CompletetaskComponent
   ],
   imports: [
     BrowserModule,
