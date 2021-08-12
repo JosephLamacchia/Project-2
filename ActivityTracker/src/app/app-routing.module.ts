@@ -9,6 +9,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { ManagerPageComponent } from './components/manager-page/manager-page.component';
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
 import { CompletetaskComponent } from './components/completetask/completetask.component';
+import { UpdatetaskComponent } from './updatetask/updatetask.component';
 
 const routes: Routes = [
   {path: 'employee', component: EmployeePageComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'manager', component: ManagerPageComponent},
   {path: 'newUser', component: NewUserRegistrationComponent},
   {path: 'complete', component: CompletetaskComponent},
-
+  {path: 'update', component:UpdatetaskComponent },
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

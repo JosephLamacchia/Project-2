@@ -20,9 +20,20 @@ export class UpdatetaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  populate(){
+    let i = window.localStorage.getItem('index');
+    let t:any = window.localStorage.getItem('task'+i);
+    this.task = JSON.parse(t);
+
+    this.description = this.task.taskdescription;
+    this.duedate = this.task.duedate;
+
+  }
+
   updateTask(){
-    this.task.duedate = this.duedate;
+   
     this.task.taskdescription = this.description;
+    this.task.duedate = this.duedate;
     
     this.taskhttp.updateTask(this.task).subscribe(
       (Response)=>{

@@ -1,1 +1,15 @@
-<p>updatetask works!</p>
+<div class="container" (onload) = "populate()">
+                        
+    <form >
+    
+      <label for="description">description</label>
+      <input type="textarea" id="description" name="employeeid" [(ngModel)] = "description" >
+
+      <label for="duedate"></label>
+      <input type="date" id="duedate">
+  
+      <button type="submit" (click)= "updateTask()">Submit</button>
+    </form>
+
+  </div>
+

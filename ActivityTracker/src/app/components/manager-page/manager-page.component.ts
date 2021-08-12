@@ -85,6 +85,7 @@ getTasksByEmployee(id :number) {
       for(let i = 0; i < this.tasks.length; i++) {
         if(this.tasks[i].e_id == id) {
           this.curTasks.push(this.tasks[i]);
+          window.localStorage.setItem('task'+i,JSON.stringify(this.tasks[i]));
         }
       }
       console.log(this.curTasks);
@@ -103,4 +104,12 @@ getTasksByEmployee(id :number) {
     })
     console.warn(data);
   }
+
+  
+ saveIndex(index:number){
+
+  let indexString:string = index.toString();
+  window.localStorage.setItem('index',indexString);
+
+ }
 }

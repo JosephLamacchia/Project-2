@@ -109,9 +109,11 @@
                             <th>Task Description</th>
                             <th>Task Status</th>
                         </tr>
-                        <tr *ngFor="let task of curTasks">
+                        <tr *ngFor="let task of curTasks;index as indexOfelement;">
                             <td>{{task.taskdescription}}</td>
                             <td>{{task.status}}</td>
+                            <td><button id="update"  routerLink="/complete" onclick="saveIndex(indexOfelement)" >Update Task</button></td>
+                            
                         </tr>
                     </table>
 
