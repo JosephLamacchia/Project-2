@@ -112,7 +112,7 @@
                         <tr *ngFor="let task of curTasks;index as indexOfelement;">
                             <td>{{task.taskdescription}}</td>
                             <td>{{task.status}}</td>
-                            <td><button id="update"  routerLink="/complete" onclick="saveIndex(indexOfelement)" >Update Task</button></td>
+                            <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
                             
                         </tr>
                     </table>

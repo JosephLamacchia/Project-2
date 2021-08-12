@@ -9,7 +9,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { ManagerPageComponent } from './components/manager-page/manager-page.component';
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
 import { CompletetaskComponent } from './components/completetask/completetask.component';
-import { UpdatetaskComponent } from './updatetask/updatetask.component';
+import { UpdatetaskComponent } from './components/updatetask/updatetask.component';
 
 const routes: Routes = [
   {path: 'employee', component: EmployeePageComponent},

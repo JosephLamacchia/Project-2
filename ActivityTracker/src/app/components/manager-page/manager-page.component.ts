@@ -85,6 +85,7 @@ getTasksByEmployee(id :number) {
       for(let i = 0; i < this.tasks.length; i++) {
         if(this.tasks[i].e_id == id) {
           this.curTasks.push(this.tasks[i]);
+          console.log('This is what is places into storage upon viewing tasks : ' + JSON.stringify(this.tasks[i]))
           window.localStorage.setItem('task'+i,JSON.stringify(this.tasks[i]));
         }
       }
@@ -106,10 +107,11 @@ getTasksByEmployee(id :number) {
   }
 
   
- saveIndex(index:number){
+ saveIndex(index:number ){
 
-  let indexString:string = index.toString();
-  window.localStorage.setItem('index',indexString);
+ 
+  console.log("index placed into storage" + index);
+  window.localStorage.setItem('index',JSON.stringify(index));
 
  }
 }

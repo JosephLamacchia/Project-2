@@ -18,15 +18,19 @@ export class UpdatetaskComponent implements OnInit {
   constructor(private emphttp: EmployeeHttpService, private taskhttp:TaskHttpService ) { }
 
   ngOnInit(): void {
-  }
-
-  populate(){
+    console.log("Populate called")
     let i = window.localStorage.getItem('index');
+    console.log("This is the index grabed : " + i)
     let t:any = window.localStorage.getItem('task'+i);
+    console.log("This is the task grabbed in update component : " + t)
     this.task = JSON.parse(t);
 
     this.description = this.task.taskdescription;
     this.duedate = this.task.duedate;
+  }
+
+  populate(){
+   
 
   }
 
