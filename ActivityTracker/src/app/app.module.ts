@@ -14,6 +14,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { ManagerPageComponent } from './components/manager-page/manager-page.component';
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
 import { CompletetaskComponent } from './components/completetask/completetask.component';
+import { UpdatetaskComponent } from './updatetask/updatetask.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CompletetaskComponent } from './components/completetask/completetask.co
     LoginPageComponent,
     ManagerPageComponent,
     NewUserRegistrationComponent,
-    CompletetaskComponent
+    CompletetaskComponent,
+    UpdatetaskComponent
   ],
   imports: [
     BrowserModule,
