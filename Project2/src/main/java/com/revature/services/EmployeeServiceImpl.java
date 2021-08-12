@@ -122,7 +122,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getEmployeebymanager(int id) {
-		
 		List<Employee> employees = (List<Employee>) er.findAll();
 		List<Employee> employeesbymanager =new ArrayList<Employee>();
 		for(int i = 0; i < employees.size(); i++) {
@@ -130,6 +129,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				employeesbymanager.add(employees.get(i));
 			}
 		}
+
 		return employeesbymanager;
 	}
 

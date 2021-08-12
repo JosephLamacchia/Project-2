@@ -4,7 +4,6 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login';
 import { Task } from 'src/models/Task';
-import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -18,6 +17,7 @@ export class EmployeePageComponent implements OnInit {
  tasks :Task[] = [];
  curTasks :Task[] = [];
  currentEmployee :Login | undefined;
+ curEmployeeString :any;
 
  constructor(private http: HttpClient, private ts: TaskHttpService, private ls: LoginmatchService) { }
 
@@ -33,10 +33,12 @@ export class EmployeePageComponent implements OnInit {
  //   })
  //   console.warn(data);
  // }
+ 
  getTasks() {
        //get the currently logged in employee
-       this.currentEmployee = this.ls.currentLogin;
-       console.log(this.currentEmployee);
+       this.curEmployeeString = window.localStorage.getItem("currentEmployee");
+       this.currentEmployee = JSON.parse(this.curEmployeeString);
+       console.log(this.curEmployeeString);
        //on init I will load all of the tasks this employee currently has
        //call the get all tasks method in the task services
        this.ts.getAllTasks().subscribe(
