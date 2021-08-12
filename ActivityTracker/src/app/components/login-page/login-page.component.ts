@@ -53,6 +53,7 @@ if (response.manager==true) {
 
            this.loginServ.currentLogin = response;
            console.log(this.loginServ.currentLogin);
+           window.localStorage.setItem("currentEmployee", JSON.stringify(this.loginServ.currentLogin));
            if(this.loginServ.currentLogin.manager == true) {
               this.router.navigate(['manager']);
            } else if (this.loginServ.currentLogin.manager == false){

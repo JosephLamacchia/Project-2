@@ -88,6 +88,7 @@
                             <th>FirstName</th>
                             <th>LastName</th>
                             <th>Email</th>
+                            <th>View Tasks</th>
                             
                         </tr>
                         <tr *ngFor="let empl of employeelist">
@@ -96,8 +97,21 @@
                             <td>{{empl.firstname}}</td>
                             <td>{{empl.lastname}}</td>
                             <td>{{(empl.email)}}</td>
+                            <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
                             
                             
+                        </tr>
+                    </table>
+
+                    <table>
+                        <!-- This table will contain the current employees tasks -->
+                        <tr>
+                            <th>Task Description</th>
+                            <th>Task Status</th>
+                        </tr>
+                        <tr *ngFor="let task of curTasks">
+                            <td>{{task.taskdescription}}</td>
+                            <td>{{task.status}}</td>
                         </tr>
                     </table>
 

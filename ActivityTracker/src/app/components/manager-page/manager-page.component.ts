@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login'
+import { TaskHttpService } from 'src/services/task_service/task-http.service';
+import { Task } from 'src/models/Task';
 
 
 
@@ -13,11 +15,14 @@ import { Login } from 'src/models/Login'
 export class ManagerPageComponent implements OnInit {
 
 
-  constructor(private http: HttpClient,private loginServ: LoginmatchService) { }
+  constructor(private http: HttpClient,private loginServ: LoginmatchService, private ts: TaskHttpService) { }
 
 
 
   employeelist: Login[] = [];
+  tasks :Task[] = [];
+  curTasks :Task[] = [];
+  
  
   ngOnInit(): void {
     this.getEmployeebymanager();
@@ -33,17 +38,19 @@ export class ManagerPageComponent implements OnInit {
   manager: boolean| undefined;
   m_id :number| undefined;
   curemployee :Login | undefined;
-
+  curEmployeeString: any;
  
-  mn :any  ;
+  mn :any;
 
  
 
 
 
  getEmployeebymanager() {
-   this.curemployee=this.loginServ.currentLogin;
-    this.mn=this.curemployee?.m_id;
+   this.curEmployeeString = window.localStorage.getItem("currentEmployee");
+   this.curemployee = JSON.parse(this.curEmployeeString);
+   //this.curemployee=this.loginServ.currentLogin;
+    this.mn=this.curemployee?.id;
 
   
   this.loginServ.getEmployeebymanager(this.mn).subscribe(
@@ -64,7 +71,26 @@ export class ManagerPageComponent implements OnInit {
 
 
 
-
+getTasksByEmployee(id :number) {
+  //so here we will get all tasks for each employee, this should be exactly like the one I used in the 
+  //employee page.
+  //Then after I get the tasks I need to show a table with all of the tasks and the update task, and approve task button 
+  //on each of the tasks.
+  this.curTasks = [];
+  this.ts.getAllTasks().subscribe(
+    (response) => {
+      console.log(response);
+      this.tasks = response;
+      console.log(id);
+      for(let i = 0; i < this.tasks.length; i++) {
+        if(this.tasks[i].e_id == id) {
+          this.curTasks.push(this.tasks[i]);
+        }
+      }
+      console.log(this.curTasks);
+    }
+  )
+}
 
 
 
@@ -77,5 +103,4 @@ export class ManagerPageComponent implements OnInit {
     })
     console.warn(data);
   }
-
 }
