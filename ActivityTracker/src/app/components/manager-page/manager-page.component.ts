@@ -4,6 +4,7 @@ import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login'
 import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { Task } from 'src/models/Task';
+import { Employee } from 'src/models/Employee';
 
 
 
@@ -41,7 +42,7 @@ export class ManagerPageComponent implements OnInit {
   curEmployeeString: any;
  
   mn :any;
-
+  x:number = 0;
  
 
 
@@ -58,7 +59,11 @@ export class ManagerPageComponent implements OnInit {
       //console.log(response);
      this.employeelist=response;
    
-      
+      for(var emp of this.employeelist){
+
+        window.localStorage.setItem('emp' + this.x++,JSON.stringify(emp) )
+        
+      }
 
 
       console.log(this.employeelist);
@@ -113,5 +118,10 @@ getTasksByEmployee(id :number) {
   console.log("index placed into storage" + index);
   window.localStorage.setItem('index',JSON.stringify(index));
 
+ }
+
+ saveEmpId(empid:string){
+  console.log("index placed into storage" + empid);
+  window.localStorage.setItem('empid',JSON.stringify(empid));
  }
 }

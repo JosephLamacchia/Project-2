@@ -22,16 +22,31 @@ export class AssigntaskComponent implements OnInit {
   }
 
   addTask(){
+  
+    let i = window.localStorage.getItem('index');
+    let emp:any = window.localStorage.getItem('emp'+i);
+
+    this.user = JSON.parse(emp);
+
+    this.task.e_id = this.user.id;
     this.task.duedate = this.duedate;
     this.task.taskdescription = this.description;
     this.task.status = "Active";
-    let i = window.localStorage.getItem('index');
 
     this.taskhttp.addTask(this.task).subscribe(
       (Response)=>{
         console.log("Add task Response : " +JSON.stringify(Response));
       }
     )
-  }
+
+   
+        this.employeehttp.sendEmail(this.user.email,this.description,"Assign").subscribe(
+          (Response)=>{
+            console.log("Email Response : " + JSON.stringify(Response));
+          }
+        )
+      }
+    
+  
 
 }
