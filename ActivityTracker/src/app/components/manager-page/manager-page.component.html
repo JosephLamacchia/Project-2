@@ -93,13 +93,14 @@
             <th>View Tasks</th>
             
         </tr>
-        <tr *ngFor="let empl of employeelist">
+        <tr *ngFor="let empl of employeelist,index as indexOfelement;">
 
             <td>{{empl.id}}</td>
             <td>{{empl.firstname}}</td>
             <td>{{empl.lastname}}</td>
             <td>{{(empl.email)}}</td>
             <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
+            <td><button (onclick)="saveIndex(indexOfelement)" routerLink="/assign" >Assign Task</button></td>
             
             
         </tr>
