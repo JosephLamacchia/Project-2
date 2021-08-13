@@ -114,9 +114,10 @@
         <th>Task Option</th>
     </tr>
     <tr *ngFor="let task of curTasks;index as indexOfelement;">
+        <td>{{task.id}}</td>
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
-        <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        <td><button id="approve"  (onclick)="approvePendingTask(task.id)"   routerLink="/update" >Approve Task</button></td>
         
     </tr>
 </table>
