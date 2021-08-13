@@ -189,3 +189,15 @@ input#description {
 input#duedate {
   text-align: center;
 }
+
+input#description {
+  height: 150px;
+}
+
+label {
+  font-size: 24px;
+}
+
+label {
+  text-align: center;
+}
