@@ -94,6 +94,17 @@ getTasksByEmployee(id :number) {
   )
 }
 
+approvePendingTask(id :number) {
+
+  for (let i=0; i<this.curTasks.length; i++) {
+    if(this.curTasks[i].id == this.id) {
+      if(this.curTasks[i].status == "Pending Approval") {
+        this.curTasks[i].status = "Approved"
+        break
+      }
+    }
+  }
+}
 
 
  
