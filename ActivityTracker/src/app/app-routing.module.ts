@@ -10,7 +10,6 @@ import { ManagerPageComponent } from './components/manager-page/manager-page.com
 import { NewUserRegistrationComponent } from './components/new-user-registration/new-user-registration.component';
 import { CompletetaskComponent } from './components/completetask/completetask.component';
 import { UpdatetaskComponent } from './components/updatetask/updatetask.component';
-
 const routes: Routes = [
   {path: 'employee', component: EmployeePageComponent},
   {path: 'forgotpassword', component: ForgotpasswordComponent},
