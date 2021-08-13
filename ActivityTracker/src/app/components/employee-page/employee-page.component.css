@@ -154,3 +154,14 @@ table#customers {
 div#parenttable {
   padding-top: 50px;
 }
+
+/* HIDING SIDE NAV */
+
+ul#accordionSidebar {
+  display: none;
+}
+
+a.active {
+  height: 60px;
+  width: 175px;
+}
