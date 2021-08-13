@@ -118,7 +118,10 @@
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
         <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
-        <td><button id="approve"  (onclick)="approvePendingTask(task.id)" >Approve Task</button></td>
+        <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
+        <td><button id="approve"  (click)="approve(task.id)" >Approve</button></td>
+        <td><button id="deny"  (click)="deny(task.id)" >Deny</button></td>
+        </div>
     </tr>
 </table>
 
