@@ -79,46 +79,49 @@
                     <!-- Page Sub Heading -->
                     <h3 class="title">Task Form</h3>
 
-                    <div id="button-container">
+<!--                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
-                    </div>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Email</th>
-                            <th>View Tasks</th>
-                            
-                        </tr>
-                        <tr *ngFor="let empl of employeelist">
-           
-                            <td>{{empl.id}}</td>
-                            <td>{{empl.firstname}}</td>
-                            <td>{{empl.lastname}}</td>
-                            <td>{{(empl.email)}}</td>
-                            <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
-                            
-                            
-                        </tr>
-                    </table>
+                    </div> -->
 
-                    <table>
-                        <!-- This table will contain the current employees tasks -->
-                        <tr>
-                            <th>Task Description</th>
-                            <th>Task Status</th>
-                        </tr>
-                        <tr *ngFor="let task of curTasks;index as indexOfelement;">
-                            <td>{{task.taskdescription}}</td>
-                            <td>{{task.status}}</td>
-                            <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
-                            
-                        </tr>
-                    </table>
+<div id="parenttable">
+    <table id="customers">
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>View Tasks</th>
+            
+        </tr>
+        <tr *ngFor="let empl of employeelist">
+
+            <td>{{empl.id}}</td>
+            <td>{{empl.firstname}}</td>
+            <td>{{empl.lastname}}</td>
+            <td>{{(empl.email)}}</td>
+            <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
+            
+            
+        </tr>
+    </table>
+</div>
+<table id="customers">
+    <!-- This table will contain the current employees tasks -->
+    <tr>
+        <th>Task Description</th>
+        <th>Task Status</th>
+        <th>Task Option</th>
+    </tr>
+    <tr *ngFor="let task of curTasks;index as indexOfelement;">
+        <td>{{task.taskdescription}}</td>
+        <td>{{task.status}}</td>
+        <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        
+    </tr>
+</table>
 
                     <!-- Page Form -->
-                    <div class="container">
+<!--                     <div class="container">
                         
                       <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
                         <label for="fname">Task Description</label>
@@ -142,7 +145,7 @@
                         <button type="submit">Submit</button>
                       </form>
 
-                    </div>
+                    </div> -->
 
 
 

@@ -1,15 +1,25 @@
 <div class="container" (onload) = "populate()">
                         
-    <form >
-    
-      <label for="description">description</label>
-      <input type="textarea" id="description" name="employeeid" [(ngModel)] = "description" >
+<div id="updateparent">
 
+  <form>
+    <div id="update1">
+      <label for="description">Description</label>
+      <input type="textarea" id="description" name="employeeid" [(ngModel)] = "description" >
+    </div>
+    
+    <div id="update2">
       <label for="duedate"></label>
       <input type="date" id="duedate">
-  
-      <button type="submit" (click)= "updateTask()">Submit</button>
-    </form>
+    </div>
+          
+    <div id="update3">
+      <button class="button button1" type="submit" (click)= "updateTask()">Submit</button>
+    </div>
+  </form>
 
-  </div>
+</div>
+
+    
+</div>
 
