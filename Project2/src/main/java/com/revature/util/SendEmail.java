@@ -1,7 +1,5 @@
 package com.revature.util;
-import java.net.PasswordAuthentication;
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
