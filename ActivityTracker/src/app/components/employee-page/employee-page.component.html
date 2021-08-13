@@ -77,16 +77,19 @@
                     <!-- Page Heading -->
                     <h1 class="title">Employee Page</h1>
                     <!-- Page Sub Heading -->
-                    <div id="button-container">
+<!--                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
-                    </div>
+                    </div> -->
 
                     <!-- This is the table to hold all of the taks assigned to this particular employee -->
-                    <div>
-                        <table>
+                    <div id="parenttable">
+                        <table id="customers">
                             <tr>
                                 <th>Task ID</th>
                                 <th>Task Status</th>
+                                <th>Task Description</th>
+                                <th>Task Options</th>
+                                <th>Complete Options</th>
                             </tr>
                             <tr *ngFor="let task of curTasks; index as indexOfelement;" >
                                 
