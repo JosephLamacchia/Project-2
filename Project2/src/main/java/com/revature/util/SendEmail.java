@@ -10,7 +10,7 @@ import javax.mail.internet.MimeMessage;
 public class SendEmail {
 
 		
-		public static void send(String email, String content) {    
+		public static void send(String email, String content, String subject) {    
 		      // Recipient's email ID needs to be mentioned.
 		      String to = email;
 	
@@ -53,7 +53,7 @@ public class SendEmail {
 		         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 	
 		         // Set Subject: header field
-		         message.setSubject("Forgotten Password");
+		         message.setSubject(subject);
 	
 		         // Now set the actual message
 		         message.setContent("<h2>Your Password is : " + content + "</h2>", "text/html");  
