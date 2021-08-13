@@ -2,10 +2,10 @@ export class Employee {
 
     id: number;
     email: string;
+    password: string;
     firstname: string;
     lastname: string;
     manager: boolean;
-    password: string;
     m_id: number;
 
     constructor(id: number, email: string, password: string, firstname: string,  lastname: string, manager: boolean, m_id:number) {    

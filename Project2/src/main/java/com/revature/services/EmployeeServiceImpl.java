@@ -91,7 +91,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			if (e.size() > 0) 	{
 
 				System.out.println("Inside proper area of switch statement");
-				SendEmail.send(email, "Your password is :" + e.get(0).getPassword());
+				SendEmail.send(email, "Your password is :" + e.get(0).getPassword(),"Forgotten Password");
 				return e;
 				
 			} else {
@@ -101,19 +101,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 			//Maybe figure out how to add names to make more custom
 		case "Assign":
 			//Can grab manager by the employees manager id? And then populate name. 
-			SendEmail.send(email, "Your manager has assigned you the following task : " + message);
+			SendEmail.send(email, "Your manager has assigned you the following task : " + message,"New Task");
 			return e;
 			
 
 		case "Complete":
 			//Less clear
-			SendEmail.send(email, "Your employee has submitted the following completion report : " + message);
+			SendEmail.send(email, "Your employee has submitted the following completion report : " + message,"Completed Task");
+			return e;
+		
+		case "Update":
+			SendEmail.send(email,"A task you are working on has been updated : " + message, "Task Updated");
 			return e;
 
 		}
 		return e;
-	}
-
+		}
+		
+	
 	@Override
 	public Employee getEmployee(String email, String password) {
 
@@ -122,7 +127,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getEmployeebymanager(int id) {
-		
 		List<Employee> employees = (List<Employee>) er.findAll();
 		List<Employee> employeesbymanager =new ArrayList<Employee>();
 		for(int i = 0; i < employees.size(); i++) {
@@ -130,6 +134,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				employeesbymanager.add(employees.get(i));
 			}
 		}
+
 		return employeesbymanager;
 	}
 

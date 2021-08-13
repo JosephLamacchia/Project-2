@@ -57,9 +57,9 @@
                 <nav id="nav" class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <div id="navdiv" class="topnav">
                         <a class="active" href="#home">Home</a>
-                        <a href="#news">News</a>
+                        <!-- <a href="#news">News</a>
                         <a href="#contact">Contact</a>
-                        <a href="#about">About</a>
+                        <a href="#about">About</a> -->
                       </div>
                 </nav>
                 <!-- End of Top Nav Bar -->
@@ -76,33 +76,56 @@
 
                     <!-- Page Heading -->
                     <h1 class="title">Manager Page</h1>
-                    <!-- Page Sub Heading -->
-                    <h3 class="title">Task Form</h3>
 
-                    <div id="button-container">
+
+<!--                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
-                    </div>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Email</th>
-                            
-                        </tr>
-                        <tr *ngFor="let empl of employeelist">
-           
-                            <td>{{empl.id}}</td>
-                            <td>{{empl.firstname}}</td>
-                            <td>{{empl.lastname}}</td>
-                            <td>{{(empl.email)}}</td>
-                            
-                            
-                        </tr>
-                    </table>
+                    </div> -->
+
+<div id="parenttable">
+    <table id="customers">
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>View Tasks</th>
+            <th>Task Assign</th>
+            
+        </tr>
+        <tr *ngFor="let empl of employeelist,index as indexOfelement;">
+
+            <td>{{empl.id}}</td>
+            <td>{{empl.firstname}}</td>
+            <td>{{empl.lastname}}</td>
+            <td>{{(empl.email)}}</td>
+            <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
+            <td><button (onclick)="saveIndex(indexOfelement)" routerLink="/assign" >Assign Task</button></td>
+            
+            
+        </tr>
+    </table>
+</div>
+<table id="customers">
+    <!-- This table will contain the current employees tasks -->
+    <tr>
+        <th>Task Description</th>
+        <th>Task Status</th>
+        <th>Task Option</th>
+        <th>Task Update</th>
+        <th>Task Approve</th>
+    </tr>
+    <tr *ngFor="let task of curTasks;index as indexOfelement;">
+        <td>{{task.id}}</td>
+        <td>{{task.taskdescription}}</td>
+        <td>{{task.status}}</td>
+        <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        <td><button id="approve"  (onclick)="approvePendingTask(task.id)" >Approve Task</button></td>
+    </tr>
+</table>
 
                     <!-- Page Form -->
-                    <div class="container">
+<!--                     <div class="container">
                         
                       <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
                         <label for="fname">Task Description</label>
@@ -126,7 +149,7 @@
                         <button type="submit">Submit</button>
                       </form>
 
-                    </div>
+                    </div> -->
 
 
 

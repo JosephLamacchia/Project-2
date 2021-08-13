@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.Employee;
 import com.revature.services.EmployeeService;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class EmployeeController {
 	
@@ -29,6 +29,12 @@ public class EmployeeController {
 	public Employee addEmployee(@RequestBody Employee e) {
 		return es.addEmployee(e);
 	}
+	
+	// READ
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("employees/id/{id}")
+	public Employee getEmployee1(@PathVariable("id") String id) {
+		return es.getEmployee(Integer.parseInt(id));}
 
 	// READ
 	@GetMapping("employees/{id}")

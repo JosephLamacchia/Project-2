@@ -28,9 +28,9 @@ class EmployeeServicesTests {
 	@Test
 	public void canAddEmployee() {
 		
-		Employee e = new Employee(0,"test","test","test","test",false,10);
+		Employee e = new Employee(0,"test","test","test","test", false,10);
 	
-		Mockito.when(er.save(e)).thenReturn(new Employee(0,"test","test","test","test",false,10)	);
+		Mockito.when(er.save(e)).thenReturn(new Employee(0,"test","test","test","test", false,10)	);
 		
 		e = es.addEmployee(e);
 		assertEquals("test", e.getFirstname());
@@ -41,7 +41,7 @@ class EmployeeServicesTests {
 	public void canGetEmployeeByEmail() {
 		
 		List<Employee> list = new ArrayList<>();
-		Employee e =  new Employee(0,"test","test","test","test",false,10);
+		Employee e =  new Employee(0,"test","test","test","test", false,10);
 		list.add(e);
 	
 		Mockito.when(er.findByEmail("test")).thenReturn(list);
@@ -56,8 +56,8 @@ class EmployeeServicesTests {
 	public void canGetAllEmployees() {
 		
 		List<Employee> list = new ArrayList<>();
-		Employee e =  new Employee(0,"test","test","test","test",false,10);
-		Employee e2 =  new Employee(0,"test2","test2","test2","test2",false,10);
+		Employee e =  new Employee(0,"test","test","test","test", false,10);
+		Employee e2 =  new Employee(0,"test","test","test","test", false,10);
 
 		list.add(e);
 		list.add(e2);
@@ -76,7 +76,7 @@ class EmployeeServicesTests {
 	
 	@Test
 	public void canDeleteEmployee() {
-		Employee e =  new Employee(0,"test","test","test","test",false,10);
+		Employee e =  new Employee(0,"test","test","test","test", false,10);
 		
 		Mockito.doNothing().when(er).deleteById(e.getId());
 		
