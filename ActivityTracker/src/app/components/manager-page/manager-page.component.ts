@@ -54,6 +54,7 @@ export class ManagerPageComponent implements OnInit {
    this.curemployee = JSON.parse(this.curEmployeeString);
    //this.curemployee=this.loginServ.currentLogin;
     this.mn=this.curemployee?.id;
+    this.firstname=this.curemployee?.firstname
 
   
   this.loginServ.getEmployeebymanager(this.mn).subscribe(

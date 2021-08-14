@@ -18,6 +18,8 @@ export class EmployeePageComponent implements OnInit {
  curTasks :Task[] = [];
  currentEmployee :Login | undefined;
  curEmployeeString :any;
+ firstname: string | undefined;
+ lastname: string | undefined;
 
  constructor(private http: HttpClient, private ts: TaskHttpService, private ls: LoginmatchService) { }
 
@@ -39,6 +41,7 @@ export class EmployeePageComponent implements OnInit {
        this.curEmployeeString = window.localStorage.getItem("currentEmployee");
        this.currentEmployee = JSON.parse(this.curEmployeeString);
        console.log(this.curEmployeeString);
+       this.firstname=this.currentEmployee?.firstname
        //on init I will load all of the tasks this employee currently has
        //call the get all tasks method in the task services
        this.ts.getAllTasks().subscribe(
