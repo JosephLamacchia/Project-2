@@ -13,7 +13,7 @@ export class EmployeeHttpService {
   constructor(private http: HttpClient) { }
 
   getAllEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>('http://localhost:7000/employees');
+    return this.http.get<Employee[]>('http://localhost:8080/employees');
   }
 
   getAllManagers(): Observable<Employee[]> {

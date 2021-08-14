@@ -1,36 +1,44 @@
-<body id="container">
+<body id="container" class="bg-gradient-primary">
   <div class="row justify-content-center">
     <div class="col-xl-10 col-lg-12 col-md-9">
       <div class="card o-hidden border-0 shadow-lg my-5">
-        <h1 class="text-center">Create Account</h1>
+
+        <div class="p-2">
+          <button class="btn btn-primary" (click)="goHome()" id="homeButton">Home</button>
+        </div>
+        <div>
+          <h1 class="text-center">Create Account</h1>
+        </div>
+
 
         <div class="form-group row">
-          <label for="inputFirst" class="col-sm-2 col-form-label">First Name</label>
-          <div class="col-sm-10">
+          <label for="inputFirst" class="col-sm-2 col-form-label" style="margin-left: 15px;">First Name</label>
+          <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="firstName" id="inputFirst" placeholder="First Name...">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputLast" class="col-sm-2 col-form-label" id="firstNameLabel">Last Name</label>
-          <div class="col-sm-10">
+          <label for="inputLast" class="col-sm-2 col-form-label" id="firstNameLabel" style="margin-left: 15px;">Last
+            Name</label>
+          <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="lastName" id="inputLast" placeholder="Last Name...">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail" class="col-sm-2 col-form-label">Email Address</label>
-          <div class="col-sm-10">
+          <label for="inputEmail" class="col-sm-2 col-form-label" style="margin-left: 15px;">Email Address</label>
+          <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="email" id="inputEmail" placeholder="Email Address...">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
+          <label for="inputPassword" class="col-sm-2 col-form-label" style="margin-left: 15px;">Password</label>
+          <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="password" id="inputPassword" placeholder="Password...">
           </div>
         </div>
-        <div>
-          <h3>Choose Manager</h3>
-          <select [(ngModel)]="selected" id="dropDown">
+        <div class="form-group col-md-4">
+          <h3 style="margin-left: 10px;">Choose Manager</h3>
+          <select [(ngModel)]="selected" id="dropDown" style="margin-left: 20px;">
             <option disabled>Select Manager</option>
             <option value="true" id="amManager">I am a Manager</option>
             <option *ngFor="let manager of managers" [ngValue]="manager" id="chooseManager">{{manager.firstname}}
@@ -39,12 +47,17 @@
         </div>
 
         <br>
-
-        <div>
+        <div class="text-center">
+          <span id="invalidI" style="color: red;" *ngIf="invalidInput">Not all fields are filled out!</span>
+          <span id="sameEmail" style="color: red;" *ngIf="duplicateEmail">That email is already in use!</span>
+          <br><br>
           <button class="btn btn-primary" (click)="createUser()" id="submitButton">Submit</button>
+          <br>
+        </div>
+        <div>
+
         </div>
 
-        <h3>{{alert}}</h3>
       </div>
     </div>
   </div>
