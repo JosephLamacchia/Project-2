@@ -12,6 +12,7 @@ import { Task } from 'src/models/Task';
   styleUrls: ['./employee-page.component.css']
 })
 
+//  this.router.navigateByUrl("/movies");
 export class EmployeePageComponent implements OnInit {
  //we need to make sure after we log in we can still retrieve the current employee
  tasks :Task[] = [];
