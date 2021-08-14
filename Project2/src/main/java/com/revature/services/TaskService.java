@@ -19,5 +19,8 @@ public interface TaskService {
 	// DELETE
 	public boolean deleteTask(int id);
 
+	public List<Task> getAllTasksbyemployee(int id);
+	
+
 
 }

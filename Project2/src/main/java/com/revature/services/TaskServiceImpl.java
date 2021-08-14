@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,18 @@ public class TaskServiceImpl implements TaskService {
 		}
 	}
 
-
+	@Override
+	public List<Task> getAllTasksbyemployee(int id) {
+		List<Task> tasks= (List<Task>) er.findAll();
+		List<Task> employeetasks= new ArrayList<Task>();
+		for(int i = 0; i < tasks.size(); i++) {
+			if (tasks.get(i).getE_id()==id) {
+				employeetasks.add(tasks.get(i));
+			}
+					
+		}
+		
+				return employeetasks;
+	}
 
 }
