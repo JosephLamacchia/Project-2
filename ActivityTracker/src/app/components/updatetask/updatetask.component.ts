@@ -3,6 +3,7 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { Task } from 'src/models/Task';
 import { EmployeeHttpService } from 'src/services/employee_service/employee-http.service';
 import { Employee } from 'src/models/Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-updatetask',
@@ -15,7 +16,7 @@ export class UpdatetaskComponent implements OnInit {
 
   task:Task = new Task(1,'',1,1,1,'');
   user:Employee = new Employee(1,'','','','',false,1);
-  constructor(private emphttp: EmployeeHttpService, private taskhttp:TaskHttpService ) { }
+  constructor(private emphttp: EmployeeHttpService, private taskhttp:TaskHttpService, private router:Router ) { }
 
   ngOnInit(): void {
     console.log("Populate called")
@@ -54,7 +55,8 @@ export class UpdatetaskComponent implements OnInit {
         )
       }
     )
-
+    this.router.navigate(['/','manager']);
   }
 
+  
 }

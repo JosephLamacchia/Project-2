@@ -78,7 +78,7 @@
                     <h1 class="title">Employee Page</h1>
                     <p style="text-align:right;"> 
                         <a href="http://localhost:4200/login" >Log out </a></p>
-                    <p style="text-align:right;" >Welcome {{firstname}}</p>
+                    <p style="text-align:right;" id="logout">Welcome {{firstname}}</p>
                     <br>
                     <!-- Page Sub Heading -->
 <!--                     <div id="button-container">
@@ -100,9 +100,9 @@
                                <td>{{task.id}}</td>
                                <td>{{task.status}}</td>
                                <td id="status">{{task.taskdescription}}</td>
-                               <td><button (click)="updateTask()" id="update">update task</button></td>
+                               <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
                                <td><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
-
+                             </div>
                             </tr>
                         </table>
                     </div>
