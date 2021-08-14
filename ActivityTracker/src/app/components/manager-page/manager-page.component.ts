@@ -4,6 +4,7 @@ import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login'
 import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { Task } from 'src/models/Task';
+import { EmployeeHttpService } from 'src/services/employee_service/employee-http.service';
 import { Employee } from 'src/models/Employee';
 
 
@@ -16,13 +17,14 @@ import { Employee } from 'src/models/Employee';
 export class ManagerPageComponent implements OnInit {
 
 
-  constructor(private http: HttpClient,private loginServ: LoginmatchService, private ts: TaskHttpService) { }
+  constructor(private http: HttpClient,private loginServ: LoginmatchService, private ts: TaskHttpService, private es : EmployeeHttpService) { }
 
 
-
+  pending: boolean = false;
   employeelist: Login[] = [];
   tasks :Task[] = [];
   curTasks :Task[] = [];
+  task: Task = new Task(0,'',1,1,0,'');
   
  
   ngOnInit(): void {
@@ -52,7 +54,6 @@ export class ManagerPageComponent implements OnInit {
    this.curemployee = JSON.parse(this.curEmployeeString);
    //this.curemployee=this.loginServ.currentLogin;
     this.mn=this.curemployee?.id;
-    this.firstname=this.curemployee?.firstname
 
   
   this.loginServ.getEmployeebymanager(this.mn).subscribe(
@@ -100,16 +101,71 @@ getTasksByEmployee(id :number) {
   )
 }
 
-approvePendingTask(id :number) {
+approve(id :number) {
 
-  for (let i=0; i<this.curTasks.length; i++) {
-    if(this.curTasks[i].id == this.id) {
-      if(this.curTasks[i].status == "Pending Approval") {
-        this.curTasks[i].status = "Approved"
-        break
+  console.log("aproove task called")
+  this.ts.getTask(id).subscribe(
+  (Response)=>{
+    this.task = Response;
+    this.task.status = 'Completed';
+
+
+    this.ts.updateTask(this.task).subscribe(
+      (Response)=>{
+        console.log("Returned from update task : " + JSON.stringify(Response));
       }
-    }
+    )
+
+    this.es.getEmployeeById(this.task.e_id).subscribe(
+      (Response)=> {
+    
+        this.es.sendEmail(Response.email,'23223','Approved').subscribe(
+          (Response)=>{
+            console.log("Email Response");
+          }
+        )
+      }
+    )
+    
+    
   }
+
+  
+)
+ 
+
+}
+
+deny(id:number){
+  console.log("aproove task called")
+  this.ts.getTask(id).subscribe(
+  (Response)=>{
+    this.task = Response;
+    this.task.status = 'Active';
+
+
+    this.ts.updateTask(this.task).subscribe(
+      (Response)=>{
+        console.log("Returned from update task : " + JSON.stringify(Response));
+      }
+    )
+
+    this.es.getEmployeeById(this.task.e_id).subscribe(
+      (Response)=> {
+    
+        this.es.sendEmail(Response.email,'23223','Denied').subscribe(
+          (Response)=>{
+            console.log("Email Response");
+          }
+        )
+      }
+    )
+    
+    
+  }
+
+  
+)
 }
 
  

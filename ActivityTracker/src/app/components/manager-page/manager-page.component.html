@@ -77,10 +77,7 @@
                     <!-- Page Heading -->
                     <h1 class="title">Manager Page</h1>
 
-                           <p style="text-align:right;"> 
-                            <a href="http://localhost:4200/login" >Log out </a></p>
-                        
-                    <p style="text-align:right;" >Welcome {{firstname}}</p>
+
 <!--                     <div id="button-container">
                         <button class="button button1">View Submitted Tasks</button>
                     </div> -->
@@ -123,7 +120,10 @@
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
         <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
-        <td><button id="approve"  (onclick)="approvePendingTask(task.id)" >Approve Task</button></td>
+        <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
+        <td><button id="approve"  (click)="approve(task.id)" >Approve</button></td>
+        <td><button id="deny"  (click)="deny(task.id)" >Deny</button></td>
+        </div>
     </tr>
 </table>
 
