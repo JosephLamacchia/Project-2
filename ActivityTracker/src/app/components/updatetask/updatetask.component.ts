@@ -25,8 +25,7 @@ export class UpdatetaskComponent implements OnInit {
     console.log("This is the task grabbed in update component : " + t)
     this.task = JSON.parse(t);
 
-    this.description = this.task.taskdescription;
-    this.duedate = this.task.duedate;
+   
   }
 
   populate(){

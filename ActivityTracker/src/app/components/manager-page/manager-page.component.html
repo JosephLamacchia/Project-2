@@ -99,7 +99,7 @@
             <td>{{empl.firstname}}</td>
             <td>{{empl.lastname}}</td>
             <td>{{(empl.email)}}</td>
-            <td><button (click)="getTasksByEmployee(empl.id)">View Tasks</button></td>
+            <td><button (click)="getTasksByEmployee(empl.id);saveIndex(indexOfelement)" id="View">View Tasks</button></td>
             <td><button (onclick)="saveIndex(indexOfelement)" routerLink="/assign" >Assign Task</button></td>
             
             
