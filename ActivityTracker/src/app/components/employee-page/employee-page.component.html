@@ -100,7 +100,7 @@
                                <td>{{task.id}}</td>
                                <td>{{task.status}}</td>
                                <td id="status">{{task.taskdescription}}</td>
-                               <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
+                               <div *ngIf = "task.status == 'Active'">
                                <td><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
                              </div>
                             </tr>
