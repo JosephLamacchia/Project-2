@@ -20,6 +20,7 @@ export class EmployeePageComponent implements OnInit {
  curEmployeeString :any;
  firstname: string | undefined;
  lastname: string | undefined;
+ duedates: Date[] = [];
 
  constructor(private http: HttpClient, private ts: TaskHttpService, private ls: LoginmatchService) { }
 
@@ -55,6 +56,8 @@ export class EmployeePageComponent implements OnInit {
            for(let i = 0; i < this.tasks.length; i++) {
              if(this.tasks[i].e_id == this.currentEmployee?.id) {
                this.curTasks.push(this.tasks[i]);
+               let myDate = new Date(+this.tasks[i].duedate)
+               this.duedates.push(myDate);
                let lsObject = JSON.stringify(this.tasks[i]);
                window.localStorage.setItem("task" + i, lsObject);
                console.log(window.localStorage.getItem("task" + i))

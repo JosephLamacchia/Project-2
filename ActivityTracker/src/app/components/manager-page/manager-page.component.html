@@ -114,11 +114,13 @@
     <tr>
         <th>Task Description</th>
         <th>Task Status</th>
+        <th>Task Due Date</th>
         <th>Task Actions</th>
     </tr>
     <tr *ngFor="let task of curTasks;index as indexOfelement;">
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
+        <td>{{duedates[indexOfelement].toLocaleString()}}</td>
         <div *ngIf = "task.status != 'Completed'">
             
         <td id="updatetaskx"><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>

@@ -25,7 +25,7 @@ export class ManagerPageComponent implements OnInit {
   tasks :Task[] = [];
   curTasks :Task[] = [];
   task: Task = new Task(0,'',1,1,0,'');
-  
+  duedates : Date[] = [];
  
   ngOnInit(): void {
     this.getEmployeebymanager();
@@ -67,7 +67,6 @@ export class ManagerPageComponent implements OnInit {
         let i = 0;
         window.localStorage.setItem('emp' + i++,JSON.stringify(emp) )
         console.log("Placed into storage : " + JSON.stringify(emp));
-        
       }
 
 
@@ -95,6 +94,8 @@ getTasksByEmployee(id :number) {
       for(let i = 0; i < this.tasks.length; i++) {
         if(this.tasks[i].e_id == id) {
           this.curTasks.push(this.tasks[i]);
+          let myDate = new Date(+this.tasks[i].duedate)
+          this.duedates.push(myDate);
           console.log('This is what is places into storage upon viewing tasks : ' + JSON.stringify(this.tasks[i]))
           window.localStorage.setItem('task'+i,JSON.stringify(this.tasks[i]));
         }

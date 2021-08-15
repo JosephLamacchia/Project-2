@@ -5,10 +5,10 @@ export class Task {
 	startdate : number; 
 	duedate : number;  
 	e_id : number; 
-	status : string; ; 
+	status : string;
 
     constructor (id : number, taskdescription : string,  startdate : number, duedate : number,  
-        e_id : number, status : string ) 
+        e_id : number, status : string) 
         {
         
             this.id = id;
