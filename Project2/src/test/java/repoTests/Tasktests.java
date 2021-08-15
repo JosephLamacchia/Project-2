@@ -35,6 +35,7 @@ public class Tasktests {
 	}
 	
 	@Test
+	@Rollback
 	void AddTask() {
 				
 		Task task=new Task("create table",8152021,9152021,2,"assign");
@@ -48,6 +49,7 @@ public class Tasktests {
 
 	
 	@Test
+	@Rollback
 	void updateTask() {
 		
 		Task task=new Task(1,"create table",8152021,9152021,2,"assign");
