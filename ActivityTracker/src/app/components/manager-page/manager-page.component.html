@@ -75,7 +75,7 @@
 
 
                     <!-- Page Heading -->
-                    <h1 class="title">Manager Page</h1>
+                    <h1 class="title" id="title">Manager Page</h1>
                     <p style="text-align:right;"> 
                         <a href="http://localhost:4200/login" id="logout" >Log out </a></p>
                     
@@ -103,7 +103,7 @@
             <td>{{empl.lastname}}</td>
             <td>{{(empl.email)}}</td>
             <td><button (click)="getTasksByEmployee(empl.id);saveIndex(indexOfelement)" id="View">View Tasks</button></td>
-            <td><button (onclick)="saveIndex(indexOfelement)" routerLink="/assign" >Assign Task</button></td>
+            <td><button (click)="saveEmpId(empl.id)" routerLink="/assign" id="assign">Assign Task</button></td>
             
             
         </tr>
@@ -122,7 +122,10 @@
         <td>{{task.id}}</td>
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
-        <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        <div *ngIf = "task.status != 'Completed'">
+            
+        <td><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        </div>
         <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
         <td><button id="approve"  (click)="approve(task.id)" >Approve</button></td>
         <td><button id="deny"  (click)="deny(task.id)" >Deny</button></td>
