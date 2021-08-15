@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./updatetask.component.css']
 })
 export class UpdatetaskComponent implements OnInit {
-  duedate: number = 0;
+  duedate: string = '';
   description: string = '';
 
   task:Task = new Task(1,'',1,1,1,'');
@@ -37,7 +37,7 @@ export class UpdatetaskComponent implements OnInit {
   updateTask(){
    
     this.task.taskdescription = this.description;
-    this.task.duedate = this.duedate;
+    this.task.duedate = +this.duedate;
     
     this.taskhttp.updateTask(this.task).subscribe(
       (Response)=>{

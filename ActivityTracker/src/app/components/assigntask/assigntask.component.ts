@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./assigntask.component.css']
 })
 export class AssigntaskComponent implements OnInit {
-  duedate: number = 0;
+  duedate: string = '';
   description: string = '';
 
   task:Task = new Task(0,'',1,1,1,'');
@@ -28,7 +28,7 @@ export class AssigntaskComponent implements OnInit {
     console.log("This is the index : " + i);
 
     this.task.e_id = Number(i);
-    this.task.duedate = this.duedate;
+    this.task.duedate = +this.duedate;
     this.task.taskdescription = this.description;
     this.task.status = "Active";
 
