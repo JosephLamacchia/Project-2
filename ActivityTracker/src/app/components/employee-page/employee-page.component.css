@@ -165,3 +165,8 @@ a.active {
   height: 60px;
   width: 175px;
 }
+
+td#completetaskx {
+  display: flex;
+  justify-content: center;
+}

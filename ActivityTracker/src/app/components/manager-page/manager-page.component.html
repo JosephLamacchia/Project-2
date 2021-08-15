@@ -121,7 +121,7 @@
         <td>{{task.status}}</td>
         <div *ngIf = "task.status != 'Completed'">
             
-        <td><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
+        <td id="updatetaskx"><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
         </div>
         <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
         <td><button id="approve"  (click)="approve(task.id)" >Approve</button></td>

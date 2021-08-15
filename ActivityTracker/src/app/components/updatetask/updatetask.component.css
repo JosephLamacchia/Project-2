@@ -194,3 +194,9 @@ label {
   text-align: center;
   font-size: 24px;
 }
+input#description {
+  height: 150px;
+}
+input#duedate {
+  height: 50px;
+}
