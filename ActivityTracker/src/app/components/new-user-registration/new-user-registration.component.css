@@ -14,3 +14,28 @@
     margin-top: 3%;
     width: 50%;
 }
+
+.p-2 {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+button#homeButton {
+    
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 18px;
+}
+
+div#choosemanager {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group.col-md-4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
