@@ -89,19 +89,19 @@
                     <div id="parenttable">
                         <table id="customers">
                             <tr>
-                                <th>Task ID</th>
+                                <!-- <th>Task ID</th> -->
                                 <th>Task Status</th>
                                 <th>Task Description</th>
-                                <th>Task Options</th>
-                                <th>Complete Options</th>
+                                <!-- <th>Task Options</th> -->
+                                <th>Complete</th>
                             </tr>
                             <tr *ngFor="let task of curTasks; index as indexOfelement;" >
                                 
-                               <td>{{task.id}}</td>
+                               <!-- <td>{{task.id}}</td> -->
                                <td>{{task.status}}</td>
                                <td id="status">{{task.taskdescription}}</td>
                                <div *ngIf = "task.status == 'Active'">
-                               <td><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
+                               <td id="completetaskx"><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
                              </div>
                             </tr>
                         </table>
