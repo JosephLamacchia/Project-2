@@ -123,7 +123,7 @@
             
         <td id="updatetaskx"><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
         </div>
-        <div *ngIf = "task.status == 'Awaiting Manager Confirmation'">
+        <div id="appvdeny" *ngIf = "task.status == 'Awaiting Manager Confirmation'">
         <td><button id="approve"  (click)="approve(task.id)" >Approve</button></td>
         <td><button id="deny"  (click)="deny(task.id)" >Deny</button></td>
         </div>

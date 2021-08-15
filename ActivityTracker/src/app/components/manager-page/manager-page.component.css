@@ -172,3 +172,8 @@ td#updatetaskx {
   display: flex;
   justify-content: center;
 }
+
+div#appvdeny {
+  display: flex;
+  justify-content: center;
+}
