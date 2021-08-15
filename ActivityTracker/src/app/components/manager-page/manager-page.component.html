@@ -120,7 +120,7 @@
     <tr *ngFor="let task of curTasks;index as indexOfelement;">
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
-        <td>{{duedates[indexOfelement].toLocaleString()}}</td>
+        <td>{{datepipe.transform(duedates[indexOfelement], 'dd-MMM-YYYY')}}</td>
         <div *ngIf = "task.status != 'Completed'">
             
         <td id="updatetaskx"><button id="update"  (click)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>

@@ -6,6 +6,7 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { Task } from 'src/models/Task';
 import { EmployeeHttpService } from 'src/services/employee_service/employee-http.service';
 import { Employee } from 'src/models/Employee';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -26,6 +27,7 @@ export class ManagerPageComponent implements OnInit {
   curTasks :Task[] = [];
   task: Task = new Task(0,'',1,1,0,'');
   duedates : Date[] = [];
+  datepipe: DatePipe = new DatePipe('en-US');
  
   ngOnInit(): void {
     this.getEmployeebymanager();
@@ -94,7 +96,7 @@ getTasksByEmployee(id :number) {
       for(let i = 0; i < this.tasks.length; i++) {
         if(this.tasks[i].e_id == id) {
           this.curTasks.push(this.tasks[i]);
-          let myDate = new Date(+this.tasks[i].duedate)
+          let myDate = new Date(+this.tasks[i].duedate + (24*60*60*1000));
           this.duedates.push(myDate);
           console.log('This is what is places into storage upon viewing tasks : ' + JSON.stringify(this.tasks[i]))
           window.localStorage.setItem('task'+i,JSON.stringify(this.tasks[i]));

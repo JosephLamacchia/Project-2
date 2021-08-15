@@ -4,6 +4,7 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { LoginmatchService } from 'src/services/loginmatch.service';
 import { Login } from 'src/models/Login';
 import { Task } from 'src/models/Task';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class EmployeePageComponent implements OnInit {
  firstname: string | undefined;
  lastname: string | undefined;
  duedates: Date[] = [];
+ datepipe: DatePipe = new DatePipe('en-US');
 
  constructor(private http: HttpClient, private ts: TaskHttpService, private ls: LoginmatchService) { }
 
@@ -56,7 +58,7 @@ export class EmployeePageComponent implements OnInit {
            for(let i = 0; i < this.tasks.length; i++) {
              if(this.tasks[i].e_id == this.currentEmployee?.id) {
                this.curTasks.push(this.tasks[i]);
-               let myDate = new Date(+this.tasks[i].duedate)
+               let myDate = new Date(+this.tasks[i].duedate + (24*60*60*1000));
                this.duedates.push(myDate);
                let lsObject = JSON.stringify(this.tasks[i]);
                window.localStorage.setItem("task" + i, lsObject);

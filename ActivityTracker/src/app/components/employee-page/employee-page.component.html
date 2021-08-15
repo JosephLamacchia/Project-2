@@ -101,7 +101,7 @@
                                <!-- <td>{{task.id}}</td> -->
                                <td>{{task.status}}</td>
                                <td id="status">{{task.taskdescription}}</td>
-                               <td>{{duedates[indexOfelement].toLocaleString()}}</td>
+                               <td>{{datepipe.transform(duedates[indexOfelement], 'dd-MMM-YYYY')}}</td>
                                <div *ngIf = "task.status == 'Active'">
                                <td id="completetaskx"><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
                              </div>
