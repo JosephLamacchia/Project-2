@@ -170,3 +170,18 @@ td#completetaskx {
   display: flex;
   justify-content: center;
 }
+
+p#logout {
+  padding-right: 51px;
+  font-size: 20px;
+}
+a {
+  border: antiquewhite;
+  background-color: gainsboro;
+  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-right: 44px;
+}
