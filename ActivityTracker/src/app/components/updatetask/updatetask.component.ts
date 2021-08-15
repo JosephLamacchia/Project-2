@@ -37,7 +37,8 @@ export class UpdatetaskComponent implements OnInit {
   updateTask(){
    
     this.task.taskdescription = this.description;
-    this.task.duedate = +this.duedate;
+    var dat = new Date(this.duedate);
+    this.task.duedate = dat.getTime();
     
     this.taskhttp.updateTask(this.task).subscribe(
       (Response)=>{

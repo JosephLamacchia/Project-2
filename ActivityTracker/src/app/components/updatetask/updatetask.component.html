@@ -10,7 +10,7 @@
     
     <div id="update2">
       <label for="duedate">Due Date</label>
-      <input type="date" id="duedate" [(ngModel)] = "duedate">
+      <input id="duedate" name="duedate" [ngModel] = " duedate | date:'yyyy-MM-dd'" (ngModelChange)="duedate = $event" type="date" type="date" name="duedate">
     </div>
           
     <div id="update3">

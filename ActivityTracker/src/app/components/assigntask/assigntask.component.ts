@@ -28,7 +28,14 @@ export class AssigntaskComponent implements OnInit {
     console.log("This is the index : " + i);
 
     this.task.e_id = Number(i);
-    this.task.duedate = +this.duedate;
+
+    var ate = new Date(this.duedate);
+
+    this.task.duedate = ate.getTime();
+
+    var myDate = new Date(+this.duedate*1000);
+    console.log("Date : " + myDate);
+console.log(myDate.toLocaleString());
     this.task.taskdescription = this.description;
     this.task.status = "Active";
 
