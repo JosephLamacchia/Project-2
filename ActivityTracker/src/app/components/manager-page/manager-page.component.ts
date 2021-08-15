@@ -64,7 +64,9 @@ export class ManagerPageComponent implements OnInit {
    
       for(var emp of this.employeelist){
 
-        window.localStorage.setItem('emp' + this.x++,JSON.stringify(emp) )
+        let i = 0;
+        window.localStorage.setItem('emp' + i++,JSON.stringify(emp) )
+        console.log("Placed into storage : " + JSON.stringify(emp));
         
       }
 
@@ -123,6 +125,7 @@ approve(id :number) {
         this.es.sendEmail(Response.email,'23223','Approved').subscribe(
           (Response)=>{
             console.log("Email Response");
+            window.location.reload();
           }
         )
       }
@@ -133,7 +136,7 @@ approve(id :number) {
 
   
 )
- 
+
 
 }
 
@@ -157,16 +160,19 @@ deny(id:number){
         this.es.sendEmail(Response.email,'23223','Denied').subscribe(
           (Response)=>{
             console.log("Email Response");
+            window.location.reload();
           }
         )
       }
     )
     
-    
+
   }
 
   
 )
+
+
 }
 
  
@@ -188,7 +194,7 @@ deny(id:number){
 
  }
 
- saveEmpId(empid:string){
+ saveEmpId(empid:number){
   console.log("index placed into storage" + empid);
   window.localStorage.setItem('empid',JSON.stringify(empid));
  }

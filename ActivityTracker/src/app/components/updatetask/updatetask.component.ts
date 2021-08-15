@@ -3,6 +3,7 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { Task } from 'src/models/Task';
 import { EmployeeHttpService } from 'src/services/employee_service/employee-http.service';
 import { Employee } from 'src/models/Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-updatetask',
@@ -10,12 +11,12 @@ import { Employee } from 'src/models/Employee';
   styleUrls: ['./updatetask.component.css']
 })
 export class UpdatetaskComponent implements OnInit {
-  duedate: number = 0;
+  duedate: string = '';
   description: string = '';
 
   task:Task = new Task(1,'',1,1,1,'');
   user:Employee = new Employee(1,'','','','',false,1);
-  constructor(private emphttp: EmployeeHttpService, private taskhttp:TaskHttpService ) { }
+  constructor(private emphttp: EmployeeHttpService, private taskhttp:TaskHttpService, private router:Router ) { }
 
   ngOnInit(): void {
     console.log("Populate called")
@@ -25,8 +26,7 @@ export class UpdatetaskComponent implements OnInit {
     console.log("This is the task grabbed in update component : " + t)
     this.task = JSON.parse(t);
 
-    this.description = this.task.taskdescription;
-    this.duedate = this.task.duedate;
+   
   }
 
   populate(){
@@ -37,7 +37,7 @@ export class UpdatetaskComponent implements OnInit {
   updateTask(){
    
     this.task.taskdescription = this.description;
-    this.task.duedate = this.duedate;
+    this.task.duedate = +this.duedate;
     
     this.taskhttp.updateTask(this.task).subscribe(
       (Response)=>{
@@ -55,7 +55,8 @@ export class UpdatetaskComponent implements OnInit {
         )
       }
     )
-
+    this.router.navigate(['/','manager']);
   }
 
+  
 }

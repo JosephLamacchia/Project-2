@@ -14,6 +14,8 @@ export class ForgotpasswordComponent implements OnInit {
   public success:boolean = false;
 
  public invalid:boolean = false;
+
+ public title: boolean = true;
  public email:string ='';
 
  
@@ -29,10 +31,17 @@ export class ForgotpasswordComponent implements OnInit {
 
           console.log("Response : " + JSON.stringify(response))
           if(response){
-            this.success= true;      
+            this.success= true; 
+            this.title = false;     
+            this.invalid = false;
+
     }
     else{
       this.invalid = true;
+      this.title = false; 
+      this.success= false; 
+    
+
     }
   })
 

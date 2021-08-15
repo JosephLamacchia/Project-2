@@ -4,6 +4,7 @@ import { TaskHttpService } from 'src/services/task_service/task-http.service';
 import { EmployeeHttpService } from 'src/services/employee_service/employee-http.service';
 import { Task } from 'src/models/Task';
 import { Employee } from 'src/models/Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-completetask',
@@ -18,7 +19,7 @@ user:Employee = new Employee(1,'','','','',false,1);
   public email = ''
 
 
-  constructor(private http: TaskHttpService, private http2:EmployeeHttpService ) {
+  constructor(private http: TaskHttpService, private http2:EmployeeHttpService, private router:Router ) {
 
    }
 
@@ -68,7 +69,11 @@ this.task.status ='Awaiting Manager Confirmation';
     
       })
       
-    }}
+      this.router.navigate(['/','employee'])
+    }
+  
+  
+  }
 
 
 

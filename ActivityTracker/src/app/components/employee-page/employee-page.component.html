@@ -78,7 +78,7 @@
                     <h1 class="title">Employee Page</h1>
                     <p style="text-align:right;"> 
                         <a href="http://localhost:4200/login" >Log out </a></p>
-                    <p style="text-align:right;" >Welcome {{firstname}}</p>
+                    <p style="text-align:right;" id="logout">Welcome {{firstname}}</p>
                     <br>
                     <!-- Page Sub Heading -->
 <!--                     <div id="button-container">
@@ -89,20 +89,20 @@
                     <div id="parenttable">
                         <table id="customers">
                             <tr>
-                                <th>Task ID</th>
+                                <!-- <th>Task ID</th> -->
                                 <th>Task Status</th>
                                 <th>Task Description</th>
-                                <th>Task Options</th>
-                                <th>Complete Options</th>
+                                <!-- <th>Task Options</th> -->
+                                <th>Complete</th>
                             </tr>
                             <tr *ngFor="let task of curTasks; index as indexOfelement;" >
                                 
-                               <td>{{task.id}}</td>
+                               <!-- <td>{{task.id}}</td> -->
                                <td>{{task.status}}</td>
                                <td id="status">{{task.taskdescription}}</td>
-                               <td><button (click)="updateTask()" id="update">update task</button></td>
-                               <td><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
-
+                               <div *ngIf = "task.status == 'Active'">
+                               <td id="completetaskx"><button routerLink="/complete" (click) = "saveIndex(indexOfelement)" id="complete">Complete Task</button></td>
+                             </div>
                             </tr>
                         </table>
                     </div>

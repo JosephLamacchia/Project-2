@@ -66,9 +66,6 @@ export class EmployeePageComponent implements OnInit {
        //filter out all of the tasks not associated to this employee
  }
 
- updateTask() {
-   //here is where we have the functionality of updating the task
- }
 
 
  saveIndex(index:number){

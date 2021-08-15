@@ -167,3 +167,13 @@ a.active {
   height: 60px;
   width: 175px;
 }
+
+td#updatetaskx {
+  display: flex;
+  justify-content: center;
+}
+
+div#appvdeny {
+  display: flex;
+  justify-content: center;
+}
