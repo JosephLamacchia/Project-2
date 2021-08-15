@@ -36,15 +36,17 @@
             <input type="text" class="form-control" [(ngModel)]="password" id="inputPassword" placeholder="Password...">
           </div>
         </div>
-        <div class="form-group col-md-4">
-          <h3 style="margin-left: 10px;">Choose Manager</h3>
-          <select [(ngModel)]="selected" id="dropDown" style="margin-left: 20px;">
-            <option disabled>Select Manager</option>
-            <option value="true" id="amManager">I am a Manager</option>
-            <option *ngFor="let manager of managers" [ngValue]="manager" id="chooseManager">{{manager.firstname}}
-              {{manager.lastname}}</option>
-          </select>
-        </div>
+<div id="choosemanager">
+  <div class="form-group col-md-4">
+    <h3 style="margin-left: 10px;">Choose Manager</h3>
+    <select [(ngModel)]="selected" id="dropDown" style="margin-left: 20px;">
+      <option disabled>Select Manager</option>
+      <option value="true" id="amManager">I am a Manager</option>
+      <option *ngFor="let manager of managers" [ngValue]="manager" id="chooseManager">{{manager.firstname}}
+        {{manager.lastname}}</option>
+    </select>
+  </div>
+</div>
 
         <br>
         <div class="text-center">
