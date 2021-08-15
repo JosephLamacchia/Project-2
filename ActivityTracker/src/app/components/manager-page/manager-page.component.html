@@ -119,7 +119,6 @@
         <th>Task Approve</th>
     </tr>
     <tr *ngFor="let task of curTasks;index as indexOfelement;">
-        <td>{{task.id}}</td>
         <td>{{task.taskdescription}}</td>
         <td>{{task.status}}</td>
         <td><button id="update"  (onclick)="saveIndex(indexOfelement)"   routerLink="/update" >Update Task</button></td>
